@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Icon } from '@common/Icon'
 import { Grid } from '@common/Grid'
 import { media } from '@utils/media'
@@ -25,10 +25,12 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    display: none;
     border: none;
     padding: 0;
     margin: 0;
+    ${media.xs`
+    display: none;
+    `}
   }
 `
 
@@ -59,8 +61,20 @@ const Group = styled.ul`
   display: flex;
   position: relative;
   flex-direction: column;
-  top: 70px;
   background: white;
+  top: 70px;
+  display: none;
+  ${media.xs`
+    display: flex;
+  `};
+  ${(props) =>
+    props.isActive &&
+    css`
+      display: flex;
+      ${media.xs`
+        display: flex;
+      `}
+    `}
   ${media.xs`
     align-items: center;
     flex-direction: row;
@@ -96,7 +110,9 @@ const NavBar = ({ routes }) => {
   return (
     <Container className="container">
       <Grid marginX={0}>
-        <Group className="group">{renderItems()}</Group>
+        <Group isActive={isActive} className="group">
+          {renderItems()}
+        </Group>
         <button onClick={() => setIsActive(!isActive)}>
           <Icon name="MENU" size={20} />
         </button>
