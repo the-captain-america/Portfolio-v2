@@ -7,7 +7,9 @@ import { NavigationProvider, Route } from '@components/Route'
 import CreativePage from '@pages/Creative'
 import LandingPage from '@pages/Landing'
 
-const Container = styled.div``
+const Container = styled.div`
+  margin-top: 96px;
+`
 
 const routes = [
   {

@@ -7,6 +7,7 @@ const Container = styled.div`
   height: 70px;
   background: grey;
   position: fixed;
+  top: 0;
   z-index: 9999;
   button {
     position: absolute;
@@ -21,9 +22,6 @@ const Container = styled.div`
     border: none;
     padding: 0;
     margin: 0;
-    @media (max-width: 420px) {
-      display: flex;
-    }
   }
 `
 
@@ -31,14 +29,15 @@ const ListItem = styled.li`
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 60px;
+  width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px 10px 0px 10px;
-  @media (max-width: 420px) {
-    margin-top: 80px;
+  padding: 48px 0px 48px 0px;
+  @media (min-width: 420px) {
+    padding: 0px 10px 0px 10px;
+    width: 60px;
   }
   &.active {
     font-weight: 600;
@@ -50,12 +49,14 @@ const Group = styled.ul`
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  @media (max-width: 420px) {
-    flex-direction: column;
+  flex-direction: column;
+  @media (min-width: 420px) {
+    align-items: center;
+    flex-direction: row;
+    background: white;
+    background: red;
   }
 `
 
