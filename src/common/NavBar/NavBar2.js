@@ -30,14 +30,13 @@ const ListItem = styled.li`
   padding: 0;
   margin: 0;
   width: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 48px 0px 48px 0px;
   @media (min-width: 420px) {
     padding: 0px 10px 0px 10px;
-    width: 60px;
+    width: unset;
   }
   &.active {
     font-weight: 600;
@@ -56,10 +55,10 @@ const Group = styled.ul`
     align-items: center;
     flex-direction: row;
     background: white;
-    background: red;
+    height: 70px;
   }
 `
-
+// 420 > =desktop
 const NavBar = ({ routes }) => {
   const [isActive, setIsActive] = useState(false)
   const [currentPath, navigate] = useState('/')
