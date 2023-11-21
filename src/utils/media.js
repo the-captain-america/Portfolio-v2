@@ -2,21 +2,20 @@ import styled, { css } from 'styled-components'
 
 const sizes = {
   xs: '(min-width: 480px)',
+  sm: '(min-width:748px)',
 }
 
 const media = {
-  xs: (...args) => css(...args),
-  sm: (...args) => css(...args),
-  lg: (...args) => css(...args),
+  xs: (...args) => css`
+    @media ${sizes.xs} {
+      ${css(...args)};
+    }
+  `,
+  sm: (...args) => css`
+    @media ${sizes.sm} {
+      ${css(...args)};
+    }
+  `,
 }
 
-const SomeDiv = styled.div`
-  ${media.xs};
-  ${media.sm};
-  ${media.lg};
-`
-
-export { SomeDiv }
-
-console.log(media.xs('bacgkround: red', 'b', 'c'))
-// bacgkround: red
+export { media }

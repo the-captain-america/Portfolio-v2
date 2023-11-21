@@ -8,7 +8,7 @@ import Cup from '@components/Cup'
 import Card from '@common/Card'
 
 const LandingPage = () => (
-  <Grid>
+  <Grid marginX={0}>
     <Row>
       <Card sm={12}>
         <Toaster />
