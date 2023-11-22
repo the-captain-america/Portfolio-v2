@@ -26,6 +26,7 @@ const Grid = styled.div.attrs({ className: 'Grid' })`
   margin-left: auto;
   box-sizing: border-box;
   max-width: 100%;
+  position: relative;
   *,
   *::after,
   *::before {

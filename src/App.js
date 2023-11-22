@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const routes = [
   {
-    label: 'Landing',
+    label: 'Home',
     path: '/',
     icon: 'SMILE',
     component: <LandingPage />,
@@ -26,16 +26,14 @@ const routes = [
   },
 ]
 
-// this is a crazy situation... not bad??
-// ok not too bad.. lets try this out for a bit
-// ok hello is this working is this slow or not
-
 const App = () => (
   <Container>
     <NavigationProvider>
       <NavBar routes={routes} />
       {routes.map((route) => (
-        <>{route.component}</>
+        <Route path={route.path}>
+          <>{route.component}</>
+        </Route>
       ))}
     </NavigationProvider>
   </Container>

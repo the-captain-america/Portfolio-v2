@@ -10,17 +10,13 @@ import Card from '@common/Card'
 const LandingPage = () => (
   <Grid marginX={0}>
     <Row>
-      <Card sm={12}>
-        <Toaster />
-      </Card>
+      <Card sm={12}>{/* <Toaster /> */}</Card>
     </Row>
     <Row>
       <Card>
-        <Kettle />
+        {/* <Kettle /> */}
       </Card>
-      <Card>
-        <Cup />
-      </Card>
+      <Card>{/* <Cup /> */}</Card>
     </Row>
   </Grid>
 )
