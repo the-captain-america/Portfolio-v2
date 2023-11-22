@@ -38,6 +38,7 @@ const Container = styled.div`
   z-index: 9999;
   button.github-mobile {
     border: none;
+    cursor: pointer;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -70,6 +71,7 @@ const Container = styled.div`
   button.github-desktop {
     background: none;
     border: none;
+    cursor: pointer;
     display: none;
     background: white;
     justify-content: center;
@@ -102,6 +104,7 @@ const Container = styled.div`
   button.menu {
     position: absolute;
     width: 42px;
+    cursor: pointer;
     height: 42px;
     top: 12px;
     right: 10px;
@@ -124,6 +127,7 @@ const Container = styled.div`
 const ListItem = styled.li`
   list-style: none;
   padding: 0;
+  cursor: pointer;
   margin: 0;
   width: 100%;
   display: flex;
@@ -134,6 +138,19 @@ const ListItem = styled.li`
   animation-duration: 0.6s;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
+  &:hover {
+    &:after {
+      content: '';
+      background: rgba(130, 130, 130, 0.2);
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+    }
+    span {
+      color: rgba(130, 130, 130, 1);
+    }
+  }
   ${(props) =>
     props.isActive &&
     css`
@@ -147,6 +164,11 @@ const ListItem = styled.li`
     `};
 
   &.active {
+    &:hover {
+      span {
+        color: black;
+      }
+    }
     span {
       font-weight: 600;
       font-size: 16px;

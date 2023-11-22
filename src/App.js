@@ -1,9 +1,8 @@
 import React from 'react'
 
-import styled from 'styled-components'
 import NavBar from '@common/NavBar'
 import { NavigationProvider, Route } from '@components/Route'
-
+import DesignPage from '@pages/Design'
 import CreativePage from '@pages/Creative'
 import LandingPage from '@pages/Landing'
 
@@ -19,6 +18,12 @@ const routes = [
     path: '/creative',
     icon: 'SMILE',
     component: <CreativePage />,
+  },
+  {
+    label: 'Design',
+    path: '/design',
+    icon: 'SMILE',
+    component: <DesignPage />,
   },
 ]
 

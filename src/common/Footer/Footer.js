@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Grid } from '@common/Grid'
+import { Grid, Row, Col } from '@common/Grid'
 
 const FooterContainer = styled.div`
   flex-shrink: 0;
@@ -15,8 +15,18 @@ const FooterContainer = styled.div`
 const Footer = () => {
   return (
     <FooterContainer className="footer">
-      <Grid>
-        <span>Footer</span>
+      <Grid marginX={0}>
+        <Row>
+          <Col>
+            <span>Footer</span>
+          </Col>
+          <Col>
+            <span>Footer</span>
+          </Col>
+          <Col>
+            <span>Footer</span>
+          </Col>
+        </Row>
       </Grid>
     </FooterContainer>
   )
