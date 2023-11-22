@@ -233,7 +233,7 @@ const NavBar = ({ routes }) => {
   }
 
   return (
-    <Container isActive={isActive} className="container">
+    <Container isActive={isActive} className="navbar">
       <Grid marginX={0}>
         <Group isActive={isActive} className="group">
           {renderItems()}

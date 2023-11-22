@@ -1,24 +1,22 @@
 import React from 'react'
 
 import { Grid, Row } from '@common/Grid'
-import Toaster from '@components/Toaster'
-import Kettle from '@components/Kettle'
 
-import Cup from '@components/Cup'
+import { Footer } from '@common/Footer'
 import Card from '@common/Card'
+import { Content } from '@common/Content'
 
 const LandingPage = () => (
-  <Grid marginX={0}>
-    <Row>
-      <Card sm={12}>{/* <Toaster /> */}</Card>
-    </Row>
-    <Row>
-      <Card>
-        {/* <Kettle /> */}
-      </Card>
-      <Card>{/* <Cup /> */}</Card>
-    </Row>
-  </Grid>
+  <>
+    <Content>
+      <Grid marginX={0}>
+        <Row>
+          <Card sm={12}>Stuff</Card>
+        </Row>
+      </Grid>
+    </Content>
+    <Footer />
+  </>
 )
 
 export default LandingPage
