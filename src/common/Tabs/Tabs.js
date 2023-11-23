@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 
+const Container = styled.div`
+  h2 {
+    span {
+      padding: 8px;
+      border-radius: 4px;
+      background: red;
+    }
+  }
+`
 // heyyyyyyy
 // don't forget the left: property AND the relative property on the li item
 const List = styled.li`
@@ -38,21 +47,22 @@ const Group = styled.ul`
 `
 
 const Tabs = ({ active, options, callback }) => {
-  const [cursor, setCursor] = useState(0)
-  const optionsLength = options.length - 1
+  const [index, setActiveIndex] = useState(0)
+  const optionsLength = options.length - 1 // 1 (assuming that we have 2 items in the array)
 
   const handleKeyDown = (e, id) => {
     if (e.key === 'Enter') {
       callback(id)
     }
-    if (e.keyCode === 37) {
+    if (e.keyCode === 37 && index > 0) {
       console.log('which arrow button was pressed? - LEFT')
+      setActiveIndex(index - 1)
     }
-    // Have you pressed the RIGHT ARROW KEY AND the `cursor` state variable is less than the
+    // Have you pressed the RIGHT ARROW KEY AND the `index` state variable is less than the
     // length of the options array [{ label: 'label 1'}, { label: 'lable 2' }] (minus 1) (because arrays are 0 indexed based)
-    if (e.keyCode === 39 && cursor < optionsLength) {
+    if (e.keyCode === 39 && index < optionsLength) {
       console.log('which arrow button was pressed? - RIGHT')
-      setCursor(cursor + 1)
+      setActiveIndex(index + 1)
     }
   }
 
@@ -71,10 +81,12 @@ const Tabs = ({ active, options, callback }) => {
   }
 
   return (
-    <div>
-      <h2>{cursor}</h2>
+    <Container>
+      <h2>
+        Which tab should be "focused"? <span>{index}</span>
+      </h2>
       <Group>{renderOptions()}</Group>
-    </div>
+    </Container>
   )
 }
 
