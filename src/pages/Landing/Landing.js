@@ -5,7 +5,10 @@ import { Grid, Row } from '@common/Grid'
 import { Footer } from '@common/Footer'
 import Card from '@common/Card'
 import { Content } from '@common/Content'
-import { Tabs } from '@common/Tabs'
+
+const Tabs = ({ active, options, callback }) => {}
+
+// <Tabs active={'label 1} options={options} callback={handleCallback} />
 
 const options = [
   { label: 'label 1', id: 'label1' },
