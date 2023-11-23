@@ -7,7 +7,6 @@ import Card from '@common/Card'
 import { Content } from '@common/Content'
 import { Tabs } from '@common/Tabs'
 
-
 // <Tabs active={'label 1} options={options} callback={handleCallback} />
 
 const options = [
@@ -28,7 +27,11 @@ const LandingPage = () => {
         <Grid marginX={0}>
           <Row>
             <Card sm={12}>
-              <Tabs options={options} callback={handleCallback} />
+              <Tabs
+                options={options}
+                callback={handleCallback}
+                active={activeTab}
+              />
             </Card>
           </Row>
         </Grid>
