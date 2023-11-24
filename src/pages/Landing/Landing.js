@@ -6,8 +6,7 @@ import { Footer } from '@common/Footer'
 import Card from '@common/Card'
 import { Content } from '@common/Content'
 import { Tabs } from '@common/Tabs'
-
-// <Tabs active={'label 1} options={options} callback={handleCallback} />
+import { TechRender } from '@components/TechCard'
 
 const options = [
   { label: 'label 1', id: 'label1' },
@@ -33,6 +32,9 @@ const LandingPage = () => {
                 active={activeTab}
               />
             </Card>
+          </Row>
+          <Row>
+            <TechRender />
           </Row>
         </Grid>
       </Content>

@@ -5,7 +5,6 @@ import { Col } from '@common/Grid'
 const CardContainer = styled.div`
   width: 100%;
   border: 6px solid white;
-  overflow: hidden;
   margin-top: 32px;
 `
 
