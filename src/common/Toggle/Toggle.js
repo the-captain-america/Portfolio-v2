@@ -72,4 +72,4 @@ const Toggle = ({ callback, name, value }) => {
   )
 }
 
-export default Toggle
+export { Toggle }

@@ -5,6 +5,7 @@ import { NavigationProvider, Route } from '@components/Route'
 import DesignPage from '@pages/Design'
 import CreativePage from '@pages/Creative'
 import LandingPage from '@pages/Landing'
+import { Library as LibraryPage } from '@components/Library'
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: '/design',
     icon: 'SMILE',
     component: <DesignPage />,
+  },
+  {
+    label: 'Library',
+    path: '/library',
+    icon: 'SMILE',
+    component: <LibraryPage />,
   },
 ]
 
