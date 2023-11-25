@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.label`
-  position: relative;
+  position: absolute;
 `
 
 const Input = styled.input`
@@ -57,11 +57,15 @@ const Slider = styled.span`
     transition: left 0.2s;
   }
 `
-const Toggle = () => {
+const Toggle = ({ callback, name, value }) => {
+  const handleChange = (e) => {
+    callback({ value: e.target.checked, name })
+  }
+
   return (
     <Wrapper>
       <Container className="toggle-container">
-        <Input type="checkbox" />
+        <Input value={value} onChange={handleChange} type="checkbox" />
         <Slider className="slider" />
       </Container>
     </Wrapper>
