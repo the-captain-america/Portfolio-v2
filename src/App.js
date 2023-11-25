@@ -5,7 +5,7 @@ import { NavigationProvider, Route } from '@components/Route'
 import DesignPage from '@pages/Design'
 import CreativePage from '@pages/Creative'
 import LandingPage from '@pages/Landing'
-import { Library as LibraryPage } from '@components/Library'
+import LibraryPage from '@pages/Library'
 
 const routes = [
   {
