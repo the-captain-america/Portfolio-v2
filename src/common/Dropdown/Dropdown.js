@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import { Icon } from '@common/Icon'
 
@@ -88,6 +88,12 @@ const List = styled.li`
     line-height: 21px;
     font-size: 16px;
   }
+  svg.CHECKBOX_FILLED {
+    rect {
+      fill: red;
+      stroke: red;
+    }
+  }
 `
 
 const updatedArray = (selected, options) => {
@@ -112,6 +118,20 @@ const Dropdown = ({ options, callback, name, ...props }) => {
   const ref = useRef()
 
   const [isOpen, setIsOpen] = useState(false)
+
+  const escFunction = useCallback((event) => {
+    if (event.key === 'Escape') {
+      setIsOpen(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.addEventListener('keydown', escFunction, false)
+
+    return () => {
+      document.removeEventListener('keydown', escFunction, false)
+    }
+  }, [escFunction])
 
   useEffect(() => {
     const callback = (e) => {
