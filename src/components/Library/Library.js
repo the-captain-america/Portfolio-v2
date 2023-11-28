@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Toggle } from '@common/Toggle'
 import styled from 'styled-components'
+import { Row, Col } from '@common/Grid'
+import { Dropdown } from '@common/Dropdown'
 
 const CardContainer = styled.div`
   display: flex;
@@ -28,16 +30,43 @@ const Card = ({ children, title }) => {
 
 const Library = () => {
   const [state, setState] = useState({
-    Toggle1: true,
+    toggle: true,
+    dropdown: [
+      { label: 'Thor', id: 1, active: false },
+      { label: 'Captain America', id: 2, active: false },
+      { label: 'Iron Man', id: 3, active: false },
+      { label: 'Extra Item', id: 4, active: false },
+      { label: 'Extra sdfsdf', id: 5, active: false },
+    ],
   })
 
   const handleCallback = (data) => {
+    console.log(data)
     setState({ [data.name]: data.value })
   }
+
   return (
-    <Card title="Toggle">
-      <Toggle value={state.Toggle1} name="Toggle1" callback={handleCallback} />
-    </Card>
+    <Row>
+      <Col>
+        <Card title="Toggle">
+          <Toggle
+            value={state.toggle}
+            name="toggle"
+            callback={handleCallback}
+          />
+        </Card>
+      </Col>
+      <Col>
+        <Card title="Dropdown">
+          <Dropdown
+            options={state.dropdown}
+            callback={handleCallback}
+            name="dropdown"
+            mt={10}
+          />
+        </Card>
+      </Col>
+    </Row>
   )
 }
 

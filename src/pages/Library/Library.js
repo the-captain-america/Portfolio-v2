@@ -6,6 +6,7 @@ import { Footer } from '@common/Footer'
 import Card from '@common/Card'
 import { Content } from '@common/Content'
 import { Library } from '@components/Library'
+
 const LibraryPage = () => {
   return (
     <>
