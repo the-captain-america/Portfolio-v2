@@ -16,6 +16,15 @@ const Wrapper = styled.div`
   ${mtFn};
 `
 
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+`
+
 const Header = styled.div`
   width: 100%;
   cursor: pointer;
@@ -47,9 +56,11 @@ const Header = styled.div`
 
 const Group = styled.ul`
   position: absolute;
+  z-index: 999;
   top: 100%;
   left: 0;
   list-style: none;
+  background: white;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -122,12 +133,11 @@ const Dropdown = ({ options, callback, name, ...props }) => {
   const renderOptions = () => {
     if (!options || !options.length) return null
     const result = options.map((option) => (
-      <List
-        key={option.label}
-        style={{ background: option.active ? '#004bdc' : 'white' }}
-        onClick={() => handleSelect(option)}
-      >
-        <Icon name="CHECKBOX" />
+      <List key={option.label} onClick={() => handleSelect(option)}>
+        <IconContainer>
+          {' '}
+          <Icon name={option.active ? 'CHECKBOX_FILLED' : 'CHECKBOX'} />
+        </IconContainer>
         <span>{option.label}</span>
       </List>
     ))
