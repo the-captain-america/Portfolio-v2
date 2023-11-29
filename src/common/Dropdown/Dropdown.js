@@ -184,12 +184,6 @@ const Dropdown = ({ options, callback, name, ...props }) => {
     }
   }, [escFunction])
 
-  const onFocus = () => {
-    if (ref.current) {
-      ref.current.focus()
-    }
-  }
-
   useEffect(() => {
     const callback = (e) => {
       const target = e.target
@@ -214,9 +208,7 @@ const Dropdown = ({ options, callback, name, ...props }) => {
         key={option.label}
         onClick={() => handleSelect(option)}
         ref={iRuffu.current[index]}
-        onKeyDown={(e) => {
-          // iRuffu.current?.[index]?.current?.focus()
-        }}
+        onKeyDown={(e) => console.log(encodeURIComponent)}
         tabIndex={0}
       >
         <IconContainer>
