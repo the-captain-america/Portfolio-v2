@@ -41,10 +41,7 @@ const Library = () => {
   })
 
   const handleCallback = (data) => {
-    console.log(data)
-    // { name, value: payload }
-    // {name: 'dropdown', value: payload}
-    setState({ [data.name]: data.value })
+    setState({ ...state, [data.name]: data.value })
   }
 
   return (

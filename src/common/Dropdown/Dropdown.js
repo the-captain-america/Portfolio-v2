@@ -14,6 +14,20 @@ const Wrapper = styled.div`
   min-width: 300px;
   width: 100%;
   ${mtFn};
+
+  &:focus-visible {
+    outline: none;
+    &:after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      border: 2px solid #368e8c;
+      border-radius: 3px;
+    }
+  }
 `
 
 const IconContainer = styled.div`
@@ -86,6 +100,7 @@ const List = styled.li`
   padding: 25px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   span {
     line-height: 21px;
     font-size: 16px;
@@ -116,16 +131,50 @@ const totalSelected = (options) => {
   return result.length
 }
 
+const keyCodes = {
+  ENTER: 'Enter',
+}
+
 const Dropdown = ({ options, callback, name, ...props }) => {
-  const ref = useRef()
+  const ref = useRef(null)
+  const iRuffu = useRef([])
+
+  iRuffu.current = options.map((option, index) =>
+    iRuffu.current[index] ? iRuffu.current[index] : React.createRef(),
+  )
 
   const [isOpen, setIsOpen] = useState(false)
+
+  const [index, setActiveIndex] = useState(0)
+  const optionsLength = options.length - 1 // 1 (assuming that we have 2 items in the array)
 
   const escFunction = useCallback((event) => {
     if (event.key === 'Escape') {
       setIsOpen(false)
     }
   }, [])
+
+  const onKeyDown = (e) => {
+    const key = e.keyCode || e.charCode
+    if (key === keyCodes.ENTER || key === 13) {
+      if (isOpen) {
+        setIsOpen(false)
+        return
+      }
+      setIsOpen(true)
+      return
+    }
+    if (isOpen) {
+      if (key === '40' || key === 40) {
+        // what is the ?. in javascript ? it's called optional chaining
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+
+        if (iRuffu && iRuffu?.current[0]) {
+          iRuffu.current[0].current.focus()
+        }
+      }
+    }
+  }
 
   useEffect(() => {
     document.addEventListener('keydown', escFunction, false)
@@ -134,6 +183,12 @@ const Dropdown = ({ options, callback, name, ...props }) => {
       document.removeEventListener('keydown', escFunction, false)
     }
   }, [escFunction])
+
+  const onFocus = () => {
+    if (ref.current) {
+      ref.current.focus()
+    }
+  }
 
   useEffect(() => {
     const callback = (e) => {
@@ -154,10 +209,17 @@ const Dropdown = ({ options, callback, name, ...props }) => {
 
   const renderOptions = () => {
     if (!options || !options.length) return null
-    const result = options.map((option) => (
-      <List key={option.label} onClick={() => handleSelect(option)}>
+    const result = options.map((option, index) => (
+      <List
+        key={option.label}
+        onClick={() => handleSelect(option)}
+        ref={iRuffu.current[index]}
+        onKeyDown={(e) => {
+          // iRuffu.current?.[index]?.current?.focus()
+        }}
+        tabIndex={0}
+      >
         <IconContainer>
-          {' '}
           <Icon name={option.active ? 'CHECKBOX_FILLED' : 'CHECKBOX'} />
         </IconContainer>
         <span>{option.label}</span>
@@ -170,7 +232,7 @@ const Dropdown = ({ options, callback, name, ...props }) => {
   const total = totalSelected(options)
 
   return (
-    <Wrapper ref={ref} mt={props.mt}>
+    <Wrapper ref={ref} mt={props.mt} tabIndex={0} onKeyDown={onKeyDown}>
       <Header isActive={isOpen} onClick={() => setIsOpen(!isOpen)}>
         <span>{total > 0 ? `Selected: ${total}` : 'Select'}</span>
         <Icon name="CHEVRON" />
