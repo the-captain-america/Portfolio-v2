@@ -43,7 +43,9 @@ const Header = styled.div`
   svg {
     margin-left: auto;
     transition: transform 0.2s;
-    fill: #0148dd;
+    path {
+      fill: #0148dd;
+    }
   }
   ${(props) =>
     props.isActive &&
@@ -90,8 +92,8 @@ const List = styled.li`
   }
   svg.CHECKBOX_FILLED {
     rect {
-      fill: red;
-      stroke: red;
+      fill: #0148dd;
+      stroke: #0148dd;
     }
   }
 `

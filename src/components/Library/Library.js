@@ -21,8 +21,8 @@ const CardGroup = styled.div`
 
 const Card = ({ children, title }) => {
   return (
-    <CardContainer>
-      <CardGroup>{children}</CardGroup>
+    <CardContainer className="card-container">
+      <CardGroup className="card-group">{children}</CardGroup>
       <h2> {title}</h2>
     </CardContainer>
   )
@@ -42,6 +42,8 @@ const Library = () => {
 
   const handleCallback = (data) => {
     console.log(data)
+    // { name, value: payload }
+    // {name: 'dropdown', value: payload}
     setState({ [data.name]: data.value })
   }
 
