@@ -63,7 +63,7 @@ const Toggle = ({ callback, name, value }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper tabIndex={0}>
       <Container className="toggle-container">
         <Input value={value} onChange={handleChange} type="checkbox" />
         <Slider className="slider" />

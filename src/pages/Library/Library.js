@@ -14,7 +14,7 @@ const LibraryPage = () => {
         <Grid marginX={0}>
           <Row>
             <Card sm={12}>
-              <Library />
+              <Library className="library" />
             </Card>
           </Row>
         </Grid>

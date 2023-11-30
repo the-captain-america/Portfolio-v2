@@ -1,11 +1,12 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { Grid, Row, Col } from '@common/Grid'
+import { FooterInfo } from './FooterInfo'
 
 const FooterContainer = styled.div`
   flex-shrink: 0;
   background: #424242;
-  padding: 24px;
+  padding: 36px;
   span {
     color: white;
     font-weight: 600;
@@ -18,13 +19,16 @@ const Footer = () => {
       <Grid marginX={0}>
         <Row>
           <Col>
-            <span>Footer</span>
+            <span>Home</span>
+            <FooterInfo text1="About Me" text2="Resume" />
           </Col>
           <Col>
-            <span>Footer</span>
+            <span>Connect</span>
+            <FooterInfo text1="GitHub" text2="LinkedIn" />
           </Col>
           <Col>
-            <span>Footer</span>
+            <span>Contact</span>
+            <FooterInfo text1="vinujithmin@gmail.com" />
           </Col>
         </Row>
       </Grid>

@@ -50,6 +50,7 @@ const Library = () => {
       <Col>
         <Card title="Toggle">
           <Toggle
+            className="toggle"
             value={state.toggle}
             name="toggle"
             callback={handleCallback}
@@ -66,11 +67,6 @@ const Library = () => {
           />
         </Card>
       </Col>
-      <Row>
-        <Col>
-          <Card></Card>
-        </Col>
-      </Row>
     </Row>
   )
 }
