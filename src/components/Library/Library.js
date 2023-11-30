@@ -3,6 +3,7 @@ import { Toggle } from '@common/Toggle'
 import styled from 'styled-components'
 import { Row, Col } from '@common/Grid'
 import { Dropdown } from '@common/Dropdown'
+import { MenuSearchApp } from '@components/Search'
 
 const CardContainer = styled.div`
   display: flex;
@@ -65,6 +66,11 @@ const Library = () => {
           />
         </Card>
       </Col>
+      <Row>
+        <Col>
+          <Card></Card>
+        </Col>
+      </Row>
     </Row>
   )
 }
