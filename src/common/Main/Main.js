@@ -11,11 +11,14 @@ const MainWrapper = styled.div`
 `
 
 const Subtitle = styled.div`
+  width: 100%;
+  max-width: 600px;
   h3.subtitle {
     margin: 0;
     color: #6e93e8;
     font-weight: 600;
     line-height: 24px;
+    text-align: center;
     font-size: 21px;
   }
 `
@@ -46,14 +49,14 @@ const Info = styled.div`
 `
 
 const Main = ({ children, ...props }) => (
-  <MainWrapper>
-    <Subtitle>
+  <MainWrapper className="main">
+    <Subtitle className="subtitle">
       <h3 className="subtitle">{props.subtitle}</h3>
     </Subtitle>
-    <Title>
+    <Title className="title">
       <h2 className="title">Build websites even faster with components</h2>
     </Title>
-    <Info>
+    <Info className="info">
       <p>
         It was popularised in the 190s with the release of Letraset sheets
         containing Loren Ipsum passages, and more recently with desktoplt.

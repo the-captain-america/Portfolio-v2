@@ -244,7 +244,7 @@ const NavBar = ({ routes }) => {
           className={currentPath === route.path ? 'active' : ''}
           key={route.label}
         >
-          <span>{route.label}</span>
+          <span className="list-item">{route.label}</span>
         </ListItem>
       )
     })
