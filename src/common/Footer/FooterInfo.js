@@ -13,7 +13,7 @@ const FooterContainer = styled.div`
   }
 `
 
-const FooterInfo = ({ text1, text2 }) => {
+const FooterInfo = ({ text1, text2, children }) => {
   return (
     <FooterContainer>
       <span>{text1}</span>

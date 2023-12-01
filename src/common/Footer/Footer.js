@@ -28,7 +28,7 @@ const Footer = () => {
           </Col>
           <Col>
             <span>Contact</span>
-            <FooterInfo text1="vinujithmin@gmail.com" />
+            <FooterInfo text1="vinujithmin@gmail.com" icon="" />
           </Col>
         </Row>
       </Grid>
