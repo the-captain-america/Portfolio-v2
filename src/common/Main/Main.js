@@ -15,7 +15,7 @@ const Subtitle = styled.div`
   max-width: 600px;
   h3.subtitle {
     margin: 0;
-    color: #6e93e8;
+    color: #6a6cff;
     font-weight: 600;
     line-height: 24px;
     text-align: center;

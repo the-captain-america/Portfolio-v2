@@ -20,15 +20,32 @@ const Footer = () => {
         <Row>
           <Col>
             <span>Home</span>
-            <FooterInfo text1="About Me" text2="Resume" />
+            <FooterInfo
+              items={[
+                {
+                  label: 'Resume',
+                  icon: 'RESUME',
+                  value: '/Resume',
+                },
+              ]}
+            />
           </Col>
           <Col>
             <span>Connect</span>
-            <FooterInfo text1="GitHub" text2="LinkedIn" />
-          </Col>
-          <Col>
-            <span>Contact</span>
-            <FooterInfo text1="vinujithmin@gmail.com" icon="" />
+            <FooterInfo
+              items={[
+                {
+                  label: 'GitHub',
+                  icon: 'GITHUB',
+                  value: 'https://github.com/vinu-codes',
+                },
+                {
+                  label: 'LinkedIn',
+                  icon: 'LINKED_IN',
+                  value: 'https://www.linkedin.com/in/vinujk/',
+                },
+              ]}
+            />
           </Col>
         </Row>
       </Grid>
