@@ -83,11 +83,7 @@ const Container = styled.div`
     transform: translateY(-50%);
     background: #ffffff;
     transition: all 0.3s ease-in-out;
-    &:hover {
-      box-shadow:
-        7px 7px 17px #cecece,
-        -7px -7px 17px #f2f2f2;
-    }
+
     span {
       font-size: 16px;
       margin-right: 8px;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Grid, Row } from '@common/Grid'
+import { Grid, Row, Col } from '@common/Grid'
 
 import { Footer } from '@common/Footer'
 import Card from '@common/Card'
@@ -27,9 +27,11 @@ const LandingPage = () => {
       <Content>
         <Grid marginX={0}>
           <Row>
-            <Main subtitle="Component Library" title="" info="">
-              <Button text="Get Started" />
-            </Main>
+            <Col>
+              <Main subtitle="Component Library" title="" info="">
+                <Button text="Get Started" />
+              </Main>
+            </Col>
           </Row>
           <Row>
             <Card sm={12}>
@@ -44,7 +46,9 @@ const LandingPage = () => {
             <TechRender />
           </Row>
           <Row>
-            <Main subtitle="Components" title="" info=""></Main>
+            <Col>
+              <Main subtitle="Components" title="" info=""></Main>
+            </Col>
           </Row>
         </Grid>
       </Content>
