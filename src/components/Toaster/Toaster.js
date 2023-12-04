@@ -331,10 +331,6 @@ const CabelCordContainer = styled.div`
 const ToasterApp = () => {
   const [isActive, setIsActive] = useState(false)
 
-  useEffect(() => {
-    document.body.style.backgroundColor = '#d5ceb4'
-  })
-
   return (
     <Container className="main-container">
       <ToasterContainer className="toaster-container">

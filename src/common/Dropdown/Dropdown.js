@@ -17,7 +17,7 @@ const mrFn = ({ mr }) =>
 const Wrapper = styled.div`
   position: relative;
   max-width: 360px;
-  min-width: 300px;
+  min-width: 250px;
   width: 100%;
   ${mtFn};
 
@@ -57,7 +57,7 @@ const Header = styled.div`
   user-select: none;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
-  border-radius: 3px;
+  border-radius: 4px;
   position: relative;
   &:hover {
     border: 2px solid #6583c3;
@@ -78,6 +78,7 @@ const Header = styled.div`
   ${(props) =>
     props.isActive &&
     css`
+      border-radius: 4px 4px 0 0;
       svg {
         transform: rotate(180deg);
       }
@@ -97,7 +98,8 @@ const Group = styled.ul`
   display: none;
   max-height: 280px;
   overflow-y: auto;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
   ${(props) =>
     props.isActive &&
     css`
@@ -111,7 +113,7 @@ const List = styled.li`
   user-select: none;
   margin: 0;
   width: 100%;
-  padding: 25px;
+  padding: 22px;
   display: flex;
   align-items: center;
   cursor: pointer;

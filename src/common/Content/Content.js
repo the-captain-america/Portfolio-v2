@@ -32,25 +32,21 @@ const ContentContainer = styled.div`
     transform: translateX(100%) rotate(45deg);
     box-shadow: 0 0 0 200px rgb(208 209 255);
     transition: all 0.4s ease-in-out;
+    display: none;
   }
   ${media.sm`
   .square {
     left: -50%;
+    display: block;
     transform: translateX(50%) rotate(45deg);
   }
   `};
 `
 
 const Content = ({ children }) => {
-  const parallax = useParallax({
-    speed: -60,
-  })
-  const parallaxSquare = useParallax({
-    speed: -10,
-  })
   return (
-    <ContentContainer ref={parallax.ref} className="content">
-      <div ref={parallaxSquare.ref}>
+    <ContentContainer className="content">
+      <div>
         <div className="square" />
       </div>
       {children}

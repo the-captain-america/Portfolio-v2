@@ -21,7 +21,7 @@ const CardContainer = styled.div`
 
 const CardGroup = styled.div`
   background: #f4f4f4;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 16px;
 `
 
@@ -66,7 +66,7 @@ const Library = () => {
     <Row>
       <Col xs={12} sm={6}>
         <Card title="Modal">
-          <Modal active={true}>Example Modal.</Modal>
+          <Modal active={false}>Example Modal.</Modal>
         </Card>
       </Col>
       <Col xs={12} sm={6}>

@@ -36,6 +36,18 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   z-index: 9999;
+  background: transparent;
+  ${media.sm`
+    background: white;
+  `};
+  ${(props) =>
+    props.isActive &&
+    css`
+      background: white;
+      ${media.sm`
+      height: 100vh;
+      `};
+    `};
   button.github-mobile {
     border: none;
     cursor: pointer;
@@ -66,7 +78,7 @@ const Container = styled.div`
     }
     ${media.xs`
         display: none;
-      `}
+      `};
   }
   button.github-desktop {
     background: none;
@@ -85,6 +97,7 @@ const Container = styled.div`
     transition: all 0.3s ease-in-out;
 
     span {
+      transition: all 0.3s ease-in-out;
       font-size: 16px;
       margin-right: 8px;
       line-height: 21px;
@@ -99,11 +112,11 @@ const Container = styled.div`
   }
   button.menu {
     position: absolute;
-    width: 42px;
+    width: 48px;
     cursor: pointer;
-    height: 42px;
-    top: 12px;
-    right: 10px;
+    height: 48px;
+    top: 8px;
+    right: 8px;
     display: flex;
     background: white;
     align-items: center;
@@ -134,6 +147,10 @@ const ListItem = styled.li`
   animation-duration: 0.6s;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
+  transition: all 0.3s ease-in-out;
+  span {
+    transition: all 0.3s ease-in-out;
+  }
   &:hover {
     &:after {
       content: '';
@@ -162,23 +179,24 @@ const ListItem = styled.li`
   &.active {
     &:hover {
       span {
-        color: black;
+        color: #2a2b66;
       }
     }
     span {
-      font-weight: 600;
+      color: #2a2b66;
+      font-weight: 100;
       font-size: 16px;
     }
   }
   ${media.xs`
-    padding: 0px 10px 0px 10px;
+    padding: 0px 20px;
     width: unset;
     transform: translateX(0px);
     height: 100%;
     &.active {
       &:after {
         content: '';
-        background: black;
+        background: #2a2b66;
         width: 100%;
         height: 2px;
         position: absolute;
@@ -265,7 +283,7 @@ const NavBar = ({ routes }) => {
           <img src={require('./github.png')} />
         </button>
         <button className="menu" onClick={() => setIsActive(!isActive)}>
-          <Icon name={isActive ? 'CLOSE' : 'MENU'} stroke="black" size={20} />
+          <Icon name={isActive ? 'CLOSE' : 'MENU'} stroke="black" size={26} />
         </button>
       </Grid>
     </Container>
