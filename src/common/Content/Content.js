@@ -4,11 +4,12 @@ import { media } from '@utils/media'
 import { useParallax } from 'react-scroll-parallax'
 
 const ContentContainer = styled.div`
-  margin-top: 70px;
+  top: 72px;
+  position: relative;
   flex: 1 0 auto;
   background: white;
+  padding-bottom: 300px;
 
-  padding-bottom: 96px;
   padding-left: 16px;
   padding-right: 16px;
 

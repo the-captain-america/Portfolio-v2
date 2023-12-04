@@ -6,6 +6,7 @@ import { Dropdown } from '@common/Dropdown'
 import { Accordion, Provider as AccordionGroup } from '@common/Accordion'
 import { MenuSearchApp } from '@components/Search'
 import { Tabs } from '@common/Tabs'
+import { Modal } from '@common/Modal'
 
 const CardContainer = styled.div`
   display: flex;
@@ -63,6 +64,11 @@ const Library = () => {
 
   return (
     <Row>
+      <Col xs={12} sm={6}>
+        <Card title="Modal">
+          <Modal active={true}>Example Modal.</Modal>
+        </Card>
+      </Col>
       <Col xs={12} sm={6}>
         <Card title="Toggle">
           <Toggle

@@ -1,3 +1,4 @@
+import { media } from '@utils/media'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -39,13 +40,26 @@ const Title = styled.div`
 const Info = styled.div`
   width: 100%;
   max-width: 550px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: all 0.4s ease-in-out;
+  border-radius: 10px;
+  margin-bottom: 24px;
   p {
-    color: #aeaeae;
+    color: #000;
     text-align: center;
     font-size: 18px;
     line-height: 32px;
     font-weight: 300;
   }
+  ${media.sm`
+    background: transparent;
+    margin-bottom: 0;
+    p {
+      color: #aeaeae;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  `};
 `
 
 const Main = ({ children, ...props }) => (
