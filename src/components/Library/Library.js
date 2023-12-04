@@ -3,7 +3,9 @@ import { Toggle } from '@common/Toggle'
 import styled from 'styled-components'
 import { Row, Col } from '@common/Grid'
 import { Dropdown } from '@common/Dropdown'
+import { Accordion, Provider as AccordionGroup } from '@common/Accordion'
 import { MenuSearchApp } from '@components/Search'
+import { Tabs } from '@common/Tabs'
 
 const CardContainer = styled.div`
   display: flex;
@@ -29,6 +31,11 @@ const Card = ({ children, title }) => {
   )
 }
 
+const options = [
+  { label: 'label 1', id: 'label1' },
+  { label: 'label 2', id: 'label2' },
+]
+
 const Library = () => {
   const [state, setState] = useState({
     toggle: true,
@@ -40,6 +47,12 @@ const Library = () => {
       { label: 'Extra sdfsdf', id: 5, active: false },
     ],
   })
+
+  const [activeTab, setActiveTab] = useState('')
+
+  const handleTabCallback = (data) => {
+    setActiveTab(data)
+  }
 
   const handleCallback = (data) => {
     setState({ ...state, [data.name]: data.value })
@@ -58,6 +71,15 @@ const Library = () => {
         </Card>
       </Col>
       <Col>
+        <Card title="Toggle">
+          <Tabs
+            options={options}
+            callback={handleTabCallback}
+            active={activeTab}
+          />
+        </Card>
+      </Col>
+      <Col>
         <Card title="Dropdown">
           <Dropdown
             options={state.dropdown}
@@ -65,6 +87,24 @@ const Library = () => {
             name="dropdown"
             mt={10}
           />
+        </Card>
+      </Col>
+      <Col>
+        <Card title="Dropdown">
+          <AccordionGroup>
+            <Accordion title="Title 1" name="acc1">
+              Stuff inside the accordion Stuff inside the accordion Stuff inside
+              the accordion Stuff inside the accordion Stuff inside the
+              accordion Stuff inside the accordio. Stuff inside the accordion
+              Stuff inside the accordion Stuff inside the accordion
+            </Accordion>
+            <Accordion title="Title 2" name="acc2">
+              Stuff inside the accordion
+            </Accordion>
+            <Accordion title="Title 3" name="acc3">
+              Stuff inside the accordion
+            </Accordion>
+          </AccordionGroup>
         </Card>
       </Col>
     </Row>

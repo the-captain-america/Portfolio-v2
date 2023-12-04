@@ -13,14 +13,23 @@ const IconContainer = styled.div`
 
 const FooterContainer = styled.div.attrs({ className: 'FooterContainer' })`
   display: flex;
+  width: 100%;
   flex-direction: column;
-  margin-top: 12px;
+  h3 {
+    text-indent: 8px;
+    text-align: center;
+    color: white;
+    width: 100%;
+  }
 `
 
 const Group = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const ListItem = styled.li`
@@ -30,7 +39,8 @@ const ListItem = styled.li`
   display: flex;
   align-items: center;
   padding: 8px;
-  justify-content: flex-start;
+  width: 100%;
+  justify-content: center;
 `
 
 const Link = styled.a`
@@ -41,7 +51,7 @@ const Link = styled.a`
   align-items: center;
   span {
     color: #aeaeae;
-    font-weight: 300;
+    font-weight: 100;
     display: block;
     line-height: 24px;
     width: 100%;
@@ -60,7 +70,7 @@ const Link = styled.a`
   }
 `
 
-const FooterInfo = ({ items = [], children }) => {
+const FooterInfo = ({ items = [], title, children }) => {
   const renderItems = () => {
     if (!items || !items.length) return null
     const result = items.map((item) => (
@@ -81,6 +91,7 @@ const FooterInfo = ({ items = [], children }) => {
 
   return (
     <FooterContainer>
+      <h3>{title}</h3>
       {renderItems()}
       {children}
     </FooterContainer>

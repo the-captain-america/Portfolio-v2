@@ -7,9 +7,17 @@ const FooterContainer = styled.div`
   flex-shrink: 0;
   background: #424242;
   padding: 36px;
-  span {
-    color: white;
-    font-weight: 600;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.3) 6px 0px 10px 1px;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #7a7a7a;
+    z-index: 1;
   }
 `
 
@@ -19,19 +27,6 @@ const Footer = () => {
       <Grid marginX={0}>
         <Row>
           <Col>
-            <span>Home</span>
-            <FooterInfo
-              items={[
-                {
-                  label: 'Resume',
-                  icon: 'RESUME',
-                  value: '/Resume',
-                },
-              ]}
-            />
-          </Col>
-          <Col>
-            <span>Connect</span>
             <FooterInfo
               items={[
                 {
@@ -43,6 +38,11 @@ const Footer = () => {
                   label: 'LinkedIn',
                   icon: 'LINKED_IN',
                   value: 'https://www.linkedin.com/in/vinujk/',
+                },
+                {
+                  label: 'Resume',
+                  icon: 'RESUME',
+                  value: '/Resume',
                 },
               ]}
             />

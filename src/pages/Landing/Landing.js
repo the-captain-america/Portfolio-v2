@@ -5,7 +5,7 @@ import { Grid, Row, Col } from '@common/Grid'
 import { Footer } from '@common/Footer'
 import Card from '@common/Card'
 import { Content } from '@common/Content'
-import { Tabs } from '@common/Tabs'
+
 import { TechRender } from '@components/TechCard'
 import { Button } from '@common/Button'
 import { Main } from '@common/Main'
@@ -16,11 +16,10 @@ const options = [
 ]
 
 const LandingPage = () => {
-  const [activeTab, setActiveTab] = useState('')
+  // const [activeTab, setActiveTab] = useState('')
 
-  const handleCallback = (data) => {
-    setActiveTab(data)
-  }
+  // const handleCallback = (data) => {
+  // setActiveTab(data)
 
   return (
     <>
@@ -32,15 +31,6 @@ const LandingPage = () => {
                 <Button text="Get Started" />
               </Main>
             </Col>
-          </Row>
-          <Row>
-            <Card sm={12}>
-              {/* <Tabs
-                options={options}
-                callback={handleCallback}
-                active={activeTab}
-              /> */}
-            </Card>
           </Row>
           <Row>
             <TechRender />
