@@ -3,11 +3,12 @@ import { StateView } from '@common/StateView'
 const Context = createContext()
 
 const Provider = ({ children }) => {
+  const enableStateView = false
   const [state, setState] = useState([])
   return (
     <>
       <Context.Provider value={[state, setState]}>{children}</Context.Provider>
-      <StateView state={{ state }} />
+      {enableStateView && <StateView state={{ state }} />}
     </>
   )
 }

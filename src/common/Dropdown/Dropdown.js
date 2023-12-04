@@ -8,6 +8,12 @@ const mtFn = ({ mt }) =>
     margin-top: ${mt}px;
   `
 
+const mrFn = ({ mr }) =>
+  (mr || mr === 0) &&
+  css`
+    margin-right: ${mr}px;
+  `
+
 const Wrapper = styled.div`
   position: relative;
   max-width: 360px;
@@ -36,7 +42,8 @@ const IconContainer = styled.div`
   align-items: center;
   height: 24px;
   width: 24px;
-  margin-right: 8px;
+
+  ${mrFn};
 `
 
 const Header = styled.div`
@@ -51,8 +58,15 @@ const Header = styled.div`
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   border-radius: 3px;
+  position: relative;
   &:hover {
     border: 2px solid #6583c3;
+  }
+  .IconContainer {
+    right: 12px;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
   }
   svg {
     margin-left: auto;
@@ -65,7 +79,7 @@ const Header = styled.div`
     props.isActive &&
     css`
       svg {
-        transform: rotate(-180deg);
+        transform: rotate(180deg);
       }
     `}
 `
@@ -211,7 +225,7 @@ const Dropdown = ({ options, callback, name, ...props }) => {
         onKeyDown={(e) => console.log(encodeURIComponent)}
         tabIndex={0}
       >
-        <IconContainer>
+        <IconContainer mr={8}>
           <Icon name={option.active ? 'CHECKBOX_FILLED' : 'CHECKBOX'} />
         </IconContainer>
         <span>{option.label}</span>
@@ -227,7 +241,9 @@ const Dropdown = ({ options, callback, name, ...props }) => {
     <Wrapper ref={ref} mt={props.mt} tabIndex={0} onKeyDown={onKeyDown}>
       <Header isActive={isOpen} onClick={() => setIsOpen(!isOpen)}>
         <span>{total > 0 ? `Selected: ${total}` : 'Select'}</span>
-        <Icon name="CHEVRON" />
+        <IconContainer className="IconContainer">
+          <Icon name="CHEVRON" />
+        </IconContainer>
       </Header>
       {renderOptions()}
     </Wrapper>

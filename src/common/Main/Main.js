@@ -54,7 +54,9 @@ const Main = ({ children, ...props }) => (
       <h3 className="subtitle">{props.subtitle}</h3>
     </Subtitle>
     <Title className="title">
-      <h2 className="title">Build websites even faster with components</h2>
+      <h2 className="title">
+        Build apps even faster with my component library
+      </h2>
     </Title>
     <Info className="info">
       <p>

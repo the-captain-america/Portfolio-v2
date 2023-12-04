@@ -10,9 +10,11 @@ import { Tabs } from '@common/Tabs'
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
   h2 {
     margin: 0;
     font-size: 14px;
+    margin-top: 8px;
   }
 `
 
@@ -26,14 +28,15 @@ const Card = ({ children, title }) => {
   return (
     <CardContainer className="card-container">
       <CardGroup className="card-group">{children}</CardGroup>
-      <h2> {title}</h2>
+      {title && <h2>{title}</h2>}
     </CardContainer>
   )
 }
 
 const options = [
-  { label: 'label 1', id: 'label1' },
-  { label: 'label 2', id: 'label2' },
+  { label: 'Tab 1', id: '1' },
+  { label: 'Tab 2', id: '2' },
+  { label: 'Tab 3', id: '3' },
 ]
 
 const Library = () => {
@@ -48,7 +51,7 @@ const Library = () => {
     ],
   })
 
-  const [activeTab, setActiveTab] = useState('')
+  const [activeTab, setActiveTab] = useState('1')
 
   const handleTabCallback = (data) => {
     setActiveTab(data)
@@ -60,7 +63,7 @@ const Library = () => {
 
   return (
     <Row>
-      <Col>
+      <Col xs={12} sm={6}>
         <Card title="Toggle">
           <Toggle
             className="toggle"
@@ -70,8 +73,8 @@ const Library = () => {
           />
         </Card>
       </Col>
-      <Col>
-        <Card title="Toggle">
+      <Col xs={12} sm={6}>
+        <Card title="Tabs">
           <Tabs
             options={options}
             callback={handleTabCallback}
@@ -90,7 +93,7 @@ const Library = () => {
         </Card>
       </Col>
       <Col>
-        <Card title="Dropdown">
+        <Card title="Accordion">
           <AccordionGroup>
             <Accordion title="Title 1" name="acc1">
               Stuff inside the accordion Stuff inside the accordion Stuff inside

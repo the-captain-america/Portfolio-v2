@@ -6,6 +6,7 @@ import DesignPage from '@pages/Design'
 import CreativePage from '@pages/Creative'
 import LandingPage from '@pages/Landing'
 import LibraryPage from '@pages/Library'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 const routes = [
   {
@@ -36,12 +37,14 @@ const routes = [
 
 const App = () => (
   <NavigationProvider>
-    <NavBar routes={routes} />
-    {routes.map((route) => (
-      <Route path={route.path}>
-        <>{route.component}</>
-      </Route>
-    ))}
+    <ParallaxProvider>
+      <NavBar routes={routes} />
+      {routes.map((route) => (
+        <Route path={route.path}>
+          <>{route.component}</>
+        </Route>
+      ))}
+    </ParallaxProvider>
   </NavigationProvider>
 )
 
