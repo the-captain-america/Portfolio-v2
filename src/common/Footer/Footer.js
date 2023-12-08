@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Grid, Row, Col } from '@common/Grid'
 import { FooterInfo } from './FooterInfo'
+import myPDF from './resume.pdf'
 
 const FooterContainer = styled.div`
   flex-shrink: 0;
@@ -32,17 +33,21 @@ const Footer = () => {
                 {
                   label: 'GitHub',
                   icon: 'GITHUB',
+                  type: 'link',
                   value: 'https://github.com/vinu-codes',
                 },
                 {
                   label: 'LinkedIn',
                   icon: 'LINKED_IN',
+                  type: 'link',
                   value: 'https://www.linkedin.com/in/vinujk/',
                 },
                 {
                   label: 'Resume',
                   icon: 'RESUME',
-                  value: '/Resume',
+                  type: 'download',
+                  value: myPDF,
+                  download: 'resume',
                 },
               ]}
             />
@@ -53,3 +58,6 @@ const Footer = () => {
   )
 }
 export { Footer }
+;<a href={myPDF} download="My_File.pdf">
+  Download Here
+</a>

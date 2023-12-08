@@ -75,7 +75,12 @@ const FooterInfo = ({ items = [], title, children }) => {
     if (!items || !items.length) return null
     const result = items.map((item) => (
       <ListItem>
-        <Link className="link" href={item.value} key={item.label}>
+        <Link
+          className="link"
+          href={item.value}
+          key={item.label}
+          download={item.type === 'download' && item.download}
+        >
           <span className="info">{item.label}</span>
           {!!item.icon && (
             <IconContainer>
