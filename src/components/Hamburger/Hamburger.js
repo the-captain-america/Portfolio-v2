@@ -10,6 +10,7 @@ const MuffinTop = styled.div`
   width: 200px;
   height: 20px;
   position: relative;
+  border-radius: 8px;
   &:before {
     content: '';
     border-radius: 50% 50% 0 0;
