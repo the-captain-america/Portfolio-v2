@@ -72,7 +72,7 @@ const LandingPage = () => {
                   title="Hi my name is Vinu, welcome to my portfolio!"
                   config={{ hasTypeWriter: true }}
                 >
-                  <Button>
+                  <Button onClick={() => jumpToReleventDiv('library')}>
                     <span>See my work</span>
                     <IconContainer>
                       <Icon

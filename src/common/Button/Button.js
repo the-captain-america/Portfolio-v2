@@ -34,8 +34,8 @@ const ButtonComponent = styled.button`
   }
 `
 
-const Button = ({ children }) => {
-  return <ButtonComponent>{children}</ButtonComponent>
+const Button = ({ onClick, children }) => {
+  return <ButtonComponent onClick={onClick}>{children}</ButtonComponent>
 }
 
 export { Button }
