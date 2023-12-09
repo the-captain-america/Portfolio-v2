@@ -1,12 +1,13 @@
 import React from 'react'
-
 import NavBar from '@common/NavBar'
 import { NavigationProvider, Route } from '@components/Route'
 import DesignPage from '@pages/Design'
 import CreativePage from '@pages/Creative'
 import LandingPage from '@pages/Landing'
 import LibraryPage from '@pages/Library'
+import AboutMePage from '@pages/About'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import About from '@pages/About'
 
 const routes = [
   {
@@ -14,6 +15,12 @@ const routes = [
     path: '/',
     icon: 'SMILE',
     component: <LandingPage />,
+  },
+  {
+    label: 'About',
+    path: '/About',
+    icon: 'SMILE',
+    component: <AboutMePage />,
   },
   {
     label: 'Creative',
