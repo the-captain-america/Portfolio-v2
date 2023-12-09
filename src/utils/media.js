@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components'
 
 const sizes = {
   xs: '(min-width: 480px)',
-  sm: '(min-width:748px)',
+  sm: '(min-width: 748px)',
+  md: '(min-width: 1056px)',
 }
 
 const media = {
@@ -13,6 +14,11 @@ const media = {
   `,
   sm: (...args) => css`
     @media ${sizes.sm} {
+      ${css(...args)};
+    }
+  `,
+  md: (...args) => css`
+    @media ${sizes.md} {
       ${css(...args)};
     }
   `,
