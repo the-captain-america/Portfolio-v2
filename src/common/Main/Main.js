@@ -9,7 +9,7 @@ const MainWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-top: 100px;
+  margin-top: 160px;
 `
 
 const Subtitle = styled.div`
@@ -64,25 +64,25 @@ const Info = styled.div`
   `};
 `
 
-const Main = ({ children, config = {}, ...props }) => {
+const Main = (props) => {
+  const { children, config = {}, subtitle, title, info, ...rest } = props
   const { hasTypeWriter = false } = config
 
   return (
-    <MainWrapper className="main">
+    <MainWrapper className="main" {...rest}>
       <Subtitle className="subtitle">
-        <h3 className="subtitle">{props.subtitle}</h3>
+        <h3 className="subtitle">{subtitle}</h3>
       </Subtitle>
       <Title className="title">
         <h2 className="title">
-          {hasTypeWriter && <TypeWriter text={props.title} />}
+          {hasTypeWriter && <TypeWriter text={title} speed={90} />}
         </h2>
       </Title>
-      <Info className="info">
-        <p>
-          It was popularised in the 190s with the release of Letraset sheets
-          containing Loren Ipsum passages, and more recently with desktoplt.
-        </p>
-      </Info>
+      {info && (
+        <Info className="info">
+          <p>{info}</p>
+        </Info>
+      )}
       {children}
     </MainWrapper>
   )

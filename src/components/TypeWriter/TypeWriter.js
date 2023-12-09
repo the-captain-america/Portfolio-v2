@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { TextElement } from './TypeWriter.styled'
+// import { TextElement } from './TypeWriter.styled'
 
-const TypeWriter = ({ text }) => {
+// <TypeWriter text="Hello" />
+// useRef -> index.current = 0
+// currentText = '' (empty string)
+
+const TypeWriter = ({ text = 'Hello', speed = 80 }) => {
   const index = useRef(0)
   const [currentText, setCurrentText] = useState('')
 
@@ -11,17 +15,18 @@ const TypeWriter = ({ text }) => {
   }, [text])
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setCurrentText((value) => value + text.charAt(index.current))
+    const timer = setTimeout(() => {
+      const nextCharacter = text.charAt(index.current) // 'H'
+      setCurrentText((prev) => prev + nextCharacter) // 'l'
       index.current += 1
-    }, 80)
+    }, speed)
 
     return () => {
-      clearTimeout(timeoutId)
+      clearTimeout(timer)
     }
   }, [currentText, text])
 
-  return <TextElement className="type-writer">{currentText}</TextElement>
+  return <p>{currentText}</p>
 }
 
 export { TypeWriter }

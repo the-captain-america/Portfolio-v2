@@ -9,12 +9,14 @@ import LINKED_IN from './LinkedIn'
 import RESUME from './Resume'
 import MENU from './Menu'
 import GITHUB from './Github'
+import ARROW from './Arrow'
 
 export {
   SAD,
   GITHUB,
   RESUME,
   CLOSE,
+  ARROW,
   SMILE,
   CHECKBOX_FILLED,
   CHECKBOX,

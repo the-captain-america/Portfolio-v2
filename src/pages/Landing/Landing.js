@@ -10,6 +10,7 @@ import { TechRender } from '@components/TechCard'
 import { Button } from '@common/Button'
 import { Main } from '@common/Main'
 import { TypeWriter } from '@components/TypeWriter'
+import { Icon } from '@common/Icon'
 
 const options = [
   { label: 'label 1', id: 'label1' },
@@ -30,11 +31,12 @@ const LandingPage = () => {
             <Row>
               <Col>
                 <Main
-                  subtitle="Component Library"
-                  title="... Hi my name is Vinu, welcome to my portfolio!"
+                  subtitle="Junior Front End Developer"
+                  title="Hi my name is Vinu, welcome to my portfolio!"
                   config={{ hasTypeWriter: true }}
                 >
-                  <Button text="Get Started" />
+                  <Button text="See my work" />
+                  <Icon name="ARROW" />
                 </Main>
               </Col>
             </Row>
