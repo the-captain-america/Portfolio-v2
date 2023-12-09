@@ -1,3 +1,4 @@
+import { TypeWriter } from '@components/TypeWriter'
 import { media } from '@utils/media'
 import React from 'react'
 import styled from 'styled-components'
@@ -40,6 +41,7 @@ const Title = styled.div`
 const Info = styled.div`
   width: 100%;
   max-width: 550px;
+  padding: 16px;
   background: rgba(255, 255, 255, 0.7);
   transition: all 0.4s ease-in-out;
   border-radius: 10px;
@@ -62,24 +64,28 @@ const Info = styled.div`
   `};
 `
 
-const Main = ({ children, ...props }) => (
-  <MainWrapper className="main">
-    <Subtitle className="subtitle">
-      <h3 className="subtitle">{props.subtitle}</h3>
-    </Subtitle>
-    <Title className="title">
-      <h2 className="title">
-        Build apps even faster with my component library
-      </h2>
-    </Title>
-    <Info className="info">
-      <p>
-        It was popularised in the 190s with the release of Letraset sheets
-        containing Loren Ipsum passages, and more recently with desktoplt.
-      </p>
-    </Info>
-    {children}
-  </MainWrapper>
-)
+const Main = ({ children, config = {}, ...props }) => {
+  const { hasTypeWriter = false } = config
+
+  return (
+    <MainWrapper className="main">
+      <Subtitle className="subtitle">
+        <h3 className="subtitle">{props.subtitle}</h3>
+      </Subtitle>
+      <Title className="title">
+        <h2 className="title">
+          {hasTypeWriter && <TypeWriter text={props.title} />}
+        </h2>
+      </Title>
+      <Info className="info">
+        <p>
+          It was popularised in the 190s with the release of Letraset sheets
+          containing Loren Ipsum passages, and more recently with desktoplt.
+        </p>
+      </Info>
+      {children}
+    </MainWrapper>
+  )
+}
 
 export { Main }
