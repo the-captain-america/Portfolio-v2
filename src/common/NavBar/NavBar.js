@@ -3,8 +3,11 @@ import styled, { css, keyframes } from 'styled-components'
 import { useContext } from 'react'
 import { NavigationContext } from '@components/Route'
 import { Icon } from '@common/Icon'
-import { Grid } from '@common/Grid'
+import { Col, Grid, Row } from '@common/Grid'
 import { media } from '@utils/media'
+
+const gitImage = require('./assets/github.png')
+const profileImage = require('./assets/profile.png')
 
 const groupAppear = () => {
   return keyframes`
@@ -87,23 +90,26 @@ const Container = styled.div`
     border: none;
     cursor: pointer;
     display: none;
-    background: white;
+    background: rgb(42, 43, 102);
+    border-radius: 16px;
     justify-content: center;
     align-items: center;
     position: absolute;
     right: 0px;
+    padding: 8px 12px;
     top: 50%;
-    height: 100%;
     transform: translateY(-50%);
-    background: #ffffff;
     transition: all 0.3s ease-in-out;
 
     span {
       transition: all 0.3s ease-in-out;
       font-size: 16px;
-      margin-right: 8px;
+      text-align: center;
       line-height: 21px;
-      color: black;
+      color: white;
+    }
+    &:hover {
+      background: rgb(68 69 151);
     }
     img {
       height: 24px;
@@ -152,6 +158,7 @@ const ListItem = styled.li`
   transition: all 0.3s ease-in-out;
   span {
     transition: all 0.3s ease-in-out;
+    color: rgb(42, 43, 102);
   }
   &:hover {
     &:after {
@@ -176,6 +183,10 @@ const ListItem = styled.li`
         animation-delay: 30ms;
       }
       animation-name: ${listAppear};
+      span {
+        font-weight: 500;
+        color: rgb(42, 43, 102);
+      }
     `};
 
   &.active {
@@ -186,7 +197,7 @@ const ListItem = styled.li`
     }
     span {
       color: #2a2b66;
-      font-weight: 100;
+      font-weight: 500;
       font-size: 16px;
     }
   }
@@ -216,6 +227,7 @@ const Group = styled.ul`
   height: 0px;
   overflow: hidden;
   position: relative;
+  justify-content: flex-end;
   flex-direction: column;
   background: white;
   top: 70px;
@@ -236,6 +248,39 @@ const Group = styled.ul`
     top: 0;
   `};
 `
+
+const ProfileContainer = styled.div`
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border: 2px solid rgb(42, 43, 102);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  display: none;
+  ${media.xs`
+    display: block;
+  `};
+`
+
+const NavHeader = styled.div`
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  align-items: center;
+`
+
+const Profile = () => {
+  return (
+    <ProfileContainer>
+      <img src={profileImage} />
+    </ProfileContainer>
+  )
+}
 // 420 > =desktop
 const NavBar = ({ routes }) => {
   const [isActive, setIsActive] = useState(false)
@@ -273,17 +318,29 @@ const NavBar = ({ routes }) => {
   return (
     <Container isActive={isActive} className="navbar">
       <Grid marginX={0}>
-        <Group isActive={isActive} className="group">
-          {renderItems()}
-          <button onClick={handleGitHub} className="github-mobile">
+        <NavHeader>
+          {/* <button className="menu" onClick={() => setIsActive(!isActive)}>
+              <Icon
+                name={isActive ? 'CLOSE' : 'MENU'}
+                stroke="black"
+                size={26}
+              />
+            </button> */}
+          <Profile />
+          <Group isActive={isActive} className="group">
+            {/* <button onClick={handleGitHub} className="github-mobile">
+              <span>Github</span>
+              <img src={gitImage} />
+            </button> */}
+
+            {renderItems()}
+          </Group>
+
+          <button onClick={handleGitHub} className="github-desktop">
             <span>Github</span>
-            <img src={require('./github.png')} />
+            {/* <img src={gitImage} /> */}
           </button>
-        </Group>
-        <button onClick={handleGitHub} className="github-desktop">
-          <span>Github</span>
-          <img src={require('./github.png')} />
-        </button>
+        </NavHeader>
         <button className="menu" onClick={() => setIsActive(!isActive)}>
           <Icon name={isActive ? 'CLOSE' : 'MENU'} stroke="black" size={26} />
         </button>

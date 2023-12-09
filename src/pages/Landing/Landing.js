@@ -12,6 +12,19 @@ import { Main } from '@common/Main'
 import { TypeWriter } from '@components/TypeWriter'
 import { Icon } from '@common/Icon'
 
+import styled from 'styled-components'
+
+const IconContainer = styled.span`
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+`
+
 const options = [
   { label: 'label 1', id: 'label1' },
   { label: 'label 2', id: 'label2' },
@@ -35,8 +48,17 @@ const LandingPage = () => {
                   title="Hi my name is Vinu, welcome to my portfolio!"
                   config={{ hasTypeWriter: true }}
                 >
-                  <Button text="See my work" />
-                  <Icon name="ARROW" />
+                  <Button>
+                    <span>See my work</span>
+                    <IconContainer>
+                      <Icon
+                        name="ARROW"
+                        stroke="white"
+                        rotate={180}
+                        viewBox="-2 -1 20 20"
+                      />
+                    </IconContainer>
+                  </Button>
                 </Main>
               </Col>
             </Row>

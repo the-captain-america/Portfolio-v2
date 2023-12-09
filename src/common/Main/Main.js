@@ -73,11 +73,13 @@ const Main = (props) => {
       <Subtitle className="subtitle">
         <h3 className="subtitle">{subtitle}</h3>
       </Subtitle>
-      <Title className="title">
-        <h2 className="title">
-          {hasTypeWriter && <TypeWriter text={title} speed={90} />}
-        </h2>
-      </Title>
+      {title && (
+        <Title className="title">
+          <h2 className="title">
+            {hasTypeWriter ? <TypeWriter text={title} speed={90} /> : title}
+          </h2>
+        </Title>
+      )}
       {info && (
         <Info className="info">
           <p>{info}</p>

@@ -1,7 +1,12 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Svg = styled.svg.attrs({ className: 'SVG' })`
   transition: all 0.2s ease-in-out;
+  ${(props) =>
+    props.rotate &&
+    css`
+      transform: rotate(${props.rotate}deg);
+    `};
 `
 
 const Container = styled.div`

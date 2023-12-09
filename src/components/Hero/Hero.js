@@ -11,8 +11,8 @@ const SectionContainer = styled.div`
     ),
     url(${(props) => props.imgSrc});
   background-position: center;
-  height: 100vh;
-  min-height: 80rem;
+  height: 700px;
+  min-height: 700px;
   max-height: 120rem;
   position: relative;
 `

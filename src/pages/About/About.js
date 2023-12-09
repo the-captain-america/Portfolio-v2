@@ -1,7 +1,8 @@
 import React from 'react'
 import { Content } from '@common/Content'
-import { Grid, Row } from '@common/Grid'
+import { Grid, Row, Col } from '@common/Grid'
 import { Main } from '@common/Main'
+import { Footer } from '@common/Footer'
 
 const aboutMeInfo = (
   <p>
@@ -14,17 +15,23 @@ const aboutMeInfo = (
 
 const AboutMePage = () => {
   return (
-    <Content>
-      <Grid>
-        <Row>
-          <Main
-            subtitle="A bit about me..."
-            title="About Me"
-            info={aboutMeInfo}
-          ></Main>
-        </Row>
-      </Grid>
-    </Content>
+    <>
+      <Content>
+        <Grid>
+          <Row>
+            <Col>
+              <Main
+                subtitle="A bit about me..."
+                title="About Me"
+                info={aboutMeInfo}
+                config={{ hasTypeWriter: false }}
+              ></Main>
+            </Col>
+          </Row>
+        </Grid>
+      </Content>
+      <Footer />
+    </>
   )
 }
 

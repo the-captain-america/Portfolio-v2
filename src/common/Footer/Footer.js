@@ -58,6 +58,3 @@ const Footer = () => {
   )
 }
 export { Footer }
-;<a href={myPDF} download="My_File.pdf">
-  Download Here
-</a>

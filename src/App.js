@@ -22,18 +22,18 @@ const routes = [
     icon: 'SMILE',
     component: <AboutMePage />,
   },
-  {
-    label: 'Creative',
-    path: '/creative',
-    icon: 'SMILE',
-    component: <CreativePage />,
-  },
-  {
-    label: 'Design',
-    path: '/design',
-    icon: 'SMILE',
-    component: <DesignPage />,
-  },
+  // {
+  //   label: 'Creative',
+  //   path: '/creative',
+  //   icon: 'SMILE',
+  //   component: <CreativePage />,
+  // },
+  // {
+  //   label: 'Design',
+  //   path: '/design',
+  //   icon: 'SMILE',
+  //   component: <DesignPage />,
+  // },
   {
     label: 'Library',
     path: '/library',
