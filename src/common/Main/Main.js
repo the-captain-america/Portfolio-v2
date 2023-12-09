@@ -28,6 +28,7 @@ const Subtitle = styled.div`
 const Title = styled.div`
   width: 100%;
   max-width: 600px;
+  margin-bottom: 70px;
   h2.title {
     margin: 0;
     text-align: center;

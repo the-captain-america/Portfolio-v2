@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { Grid, Row } from '@common/Grid'
 
 import { Footer } from '@common/Footer'
-import Card from '@common/Card'
 import { Content } from '@common/Content'
+import Card from '@common/Card'
 import { Library } from '@components/Library'
 
 const LibraryPage = () => {

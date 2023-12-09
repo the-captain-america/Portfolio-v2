@@ -18,7 +18,7 @@ const Input = styled.input`
   width: 0;
   height: 0;
   &:checked + span {
-    background: blue;
+    background: rgb(42, 43, 102);
     &:before {
       left: 27px;
     }
@@ -27,10 +27,6 @@ const Input = styled.input`
   &:focus + span {
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
   }
-
-  /* &:focus:checked + span {
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-  } */
 `
 
 const Slider = styled.span`

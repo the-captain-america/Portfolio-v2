@@ -13,6 +13,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
+
   h2 {
     margin: 0;
     font-size: 14px;
@@ -24,6 +25,25 @@ const CardGroup = styled.div`
   background: #f4f4f4;
   border-radius: 12px;
   padding: 16px;
+  min-height: 200px;
+  border: 1px solid #d1d1d1;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 20px 0px;
+`
+
+const Detail = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  span,
+  p {
+    color: rgb(174, 174, 174);
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p {
+    margin: 0;
+  }
 `
 
 const Card = ({ children, title }) => {
@@ -64,29 +84,48 @@ const Library = () => {
   }
 
   return (
-    <Row>
-      <Col xs={12} sm={6}>
+    <>
+      <Row>
+        {/* <Col xs={12} sm={6}>
         <Card title="Modal">
           <Modal active={false}>Example Modal.</Modal>
         </Card>
-      </Col>
-      <Col xs={12} sm={6}>
-        <Card title="Toggle">
-          <Toggle
-            className="toggle"
-            value={state.toggle}
-            name="toggle"
-            callback={handleCallback}
-          />
-        </Card>
-      </Col>
-      <Col xs={12} sm={6}>
+      </Col> */}
+        <Col xs={12} sm={6}>
+          <Detail>
+            <p>Information about the check item</p>
+          </Detail>
+        </Col>
+        <Col xs={12} sm={6}>
+          <Card>
+            <Toggle
+              className="toggle"
+              value={state.toggle}
+              name="toggle"
+              callback={handleCallback}
+            />
+          </Card>
+        </Col>
+      </Row>
+      <Row mt={32}>
+        <Col xs={12} sm={6}>
+          <Card>
+            <Tabs
+              options={options}
+              callback={handleTabCallback}
+              active={activeTab}
+            />
+          </Card>
+        </Col>
+        <Col xs={12} sm={6}>
+          <Detail>
+            <p>Information about the Tabs component</p>
+          </Detail>
+        </Col>
+      </Row>
+      {/* <Col xs={12} sm={6}>
         <Card title="Tabs">
-          <Tabs
-            options={options}
-            callback={handleTabCallback}
-            active={activeTab}
-          />
+         
         </Card>
       </Col>
       <Col>
@@ -131,8 +170,8 @@ const Library = () => {
             </Accordion2>
           </Provider>
         </Card>
-      </Col>
-    </Row>
+      </Col> */}
+    </>
   )
 }
 

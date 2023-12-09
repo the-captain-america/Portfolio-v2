@@ -231,6 +231,7 @@ const Group = styled.ul`
   flex-direction: column;
   background: white;
   top: 70px;
+  margin-right: 100px;
   animation-duration: 0.4s;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
@@ -319,26 +320,12 @@ const NavBar = ({ routes }) => {
     <Container isActive={isActive} className="navbar">
       <Grid marginX={0}>
         <NavHeader>
-          {/* <button className="menu" onClick={() => setIsActive(!isActive)}>
-              <Icon
-                name={isActive ? 'CLOSE' : 'MENU'}
-                stroke="black"
-                size={26}
-              />
-            </button> */}
           <Profile />
           <Group isActive={isActive} className="group">
-            {/* <button onClick={handleGitHub} className="github-mobile">
-              <span>Github</span>
-              <img src={gitImage} />
-            </button> */}
-
             {renderItems()}
           </Group>
-
           <button onClick={handleGitHub} className="github-desktop">
             <span>Github</span>
-            {/* <img src={gitImage} /> */}
           </button>
         </NavHeader>
         <button className="menu" onClick={() => setIsActive(!isActive)}>
