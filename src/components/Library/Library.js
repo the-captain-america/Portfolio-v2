@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Row, Col } from '@common/Grid'
 import { Dropdown } from '@common/Dropdown'
 import { Accordion, Provider as AccordionGroup } from '@common/Accordion'
+import { Accordion2, Provider } from '@common/Accordion-v2'
 import { MenuSearchApp } from '@components/Search'
 import { Tabs } from '@common/Tabs'
 import { Modal } from '@common/Modal'
@@ -99,7 +100,7 @@ const Library = () => {
         </Card>
       </Col>
       <Col>
-        <Card title="Accordion">
+        <Card title="Accordion datastructure: array">
           <AccordionGroup>
             <Accordion title="Title 1" name="acc1">
               Stuff inside the accordion Stuff inside the accordion Stuff inside
@@ -114,6 +115,21 @@ const Library = () => {
               Stuff inside the accordion
             </Accordion>
           </AccordionGroup>
+        </Card>
+      </Col>
+      <Col xs={12} sm={6}>
+        <Card title="Accordion: datastructure: object">
+          <Provider>
+            <Accordion2 name="acc1" title="Title 1">
+              <p>This is what goes inside the accordion</p>
+            </Accordion2>
+            <Accordion2 name="acc2" title="Title 2">
+              <p>This is what goes inside the accordion</p>
+            </Accordion2>
+            <Accordion2 name="acc3" title="Title 3">
+              <p>This is what goes inside the accordion</p>
+            </Accordion2>
+          </Provider>
         </Card>
       </Col>
     </Row>
