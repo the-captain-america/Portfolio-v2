@@ -37,9 +37,8 @@ const Container = styled.div`
   top: 0;
   z-index: 9999;
   background: transparent;
-  box-shadow: -1px 4px 6px -3px rgba(0, 0, 0, 0.19);
-  -webkit-box-shadow: -1px 4px 6px -3px rgba(0, 0, 0, 0.19);
-  -moz-box-shadow: -1px 4px 6px -3px rgba(0, 0, 0, 0.19);
+  /* box-shadow: -1px 4px 6px -3px rgba(0, 0, 0, 0.19); */
+  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1);
   ${media.sm`
     background: white;
   `};
