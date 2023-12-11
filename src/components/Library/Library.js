@@ -7,44 +7,8 @@ import { Accordion, Provider as AccordionGroup } from '@common/Accordion'
 import { Accordion2, Provider } from '@common/Accordion-v2'
 import { MenuSearchApp } from '@components/Search'
 import { Tabs } from '@common/Tabs'
-import { Modal } from '@common/Modal'
-
-const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-
-  h2 {
-    margin: 0;
-    font-size: 14px;
-    margin-top: 8px;
-  }
-`
-
-const CardGroup = styled.div`
-  background: #f4f4f4;
-  border-radius: 12px;
-  padding: 16px;
-  min-height: 200px;
-  border: 1px solid #d1d1d1;
-  box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 20px 0px;
-`
-
-const Detail = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-  span,
-  p {
-    color: rgb(174, 174, 174);
-    font-size: 16px;
-    line-height: 24px;
-  }
-  p {
-    margin: 0;
-  }
-`
+import { Modal } from '@common/Modal-v2'
+import { CardContainer, CardGroup, Detail } from './Library.styled'
 
 const Card = ({ children, title }) => {
   return (
@@ -74,6 +38,19 @@ const Library = () => {
   })
 
   const [activeTab, setActiveTab] = useState('1')
+  const [showModal, setShowModal] = useState(false)
+
+  const handleModal = (action) => {
+    if (action === 'CLOSED') {
+      setShowModal(false)
+    }
+    if (action === 'CANCEL') {
+      setShowModal(false)
+    }
+    if (action === 'ACCEPT') {
+      setShowModal(false)
+    }
+  }
 
   const handleTabCallback = (data) => {
     setActiveTab(data)
@@ -120,6 +97,36 @@ const Library = () => {
         <Col xs={12} sm={6}>
           <Detail>
             <p>Information about the Tabs component</p>
+          </Detail>
+        </Col>
+      </Row>
+      <Row mt={32}>
+        <Col xs={12} sm={6}>
+          <Detail>
+            <p>Information about the Tabs component</p>
+          </Detail>
+        </Col>
+        <Col xs={12} sm={6}>
+          <Card>
+            <button onClick={() => setShowModal(true)}>Open Modal</button>
+          </Card>
+        </Col>
+      </Row>
+      <Row mt={32}>
+        <Col xs={12} sm={6}>
+          <Card>
+            <Dropdown
+              options={state.dropdown}
+              name="dropdown"
+              callback={({ name, value }) => {
+                setState({ ...state, [name]: value })
+              }}
+            />
+          </Card>
+        </Col>
+        <Col xs={12} sm={6}>
+          <Detail>
+            <p>Information about the Dropdown component</p>
           </Detail>
         </Col>
       </Row>
@@ -171,6 +178,19 @@ const Library = () => {
           </Provider>
         </Card>
       </Col> */}
+
+      {showModal && (
+        <Modal
+          title="Modal"
+          callback={handleModal}
+          actions={[
+            { label: 'Cancel', action: 'CANCEL' },
+            { label: 'Accept', action: 'ACCEPT' },
+          ]}
+        >
+          <p>This is important text inside the modal</p>
+        </Modal>
+      )}
     </>
   )
 }

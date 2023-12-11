@@ -154,6 +154,7 @@ const keyCodes = {
 const Dropdown = ({ options, callback, name, ...props }) => {
   const ref = useRef(null)
   const iRuffu = useRef([])
+  if (!options || !options.length) return null
 
   iRuffu.current = options.map((option, index) =>
     iRuffu.current[index] ? iRuffu.current[index] : React.createRef(),
@@ -210,6 +211,10 @@ const Dropdown = ({ options, callback, name, ...props }) => {
     }
     const body = document.querySelector('body')
     body.addEventListener('click', callback)
+
+    return () => {
+      body.removeEventListener('click', callback)
+    }
   }, [])
 
   const handleSelect = (selectedOption) => {
@@ -224,7 +229,7 @@ const Dropdown = ({ options, callback, name, ...props }) => {
         key={option.label}
         onClick={() => handleSelect(option)}
         ref={iRuffu.current[index]}
-        onKeyDown={(e) => console.log(encodeURIComponent)}
+        onKeyDown={(e) => console.log(e)}
         tabIndex={0}
       >
         <IconContainer mr={8}>
