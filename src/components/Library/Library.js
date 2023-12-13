@@ -9,6 +9,7 @@ import { MenuSearchApp } from '@components/Search'
 import { Tabs } from '@common/Tabs'
 import { Modal } from '@common/Modal-v2'
 import { CardContainer, CardGroup, Detail } from './Library.styled'
+import { Slider } from '@common/Slider'
 
 const Card = ({ children, title }) => {
   return (
@@ -178,7 +179,9 @@ const Library = () => {
           </Provider>
         </Card>
       </Col> */}
-
+      <Row>
+        <Slider />
+      </Row>
       {showModal && (
         <Modal
           title="Modal"
