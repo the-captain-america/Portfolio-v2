@@ -8,7 +8,7 @@ import {
 } from './Slider.styled'
 import { Icon } from '@common/Icon'
 
-const ImageSlider = ({ images }) => {
+const Slider = ({ images }) => {
   const [imageIndex, setImageIndex] = useState(0)
 
   const showPrevImage = () => {
@@ -36,6 +36,7 @@ const ImageSlider = ({ images }) => {
     const result = images.map((item, index) => {
       return (
         <Circle
+          data-testid={index === imageIndex ? 'active' : 'notactive'}
           onClick={() => handleClick(index)}
           isActive={index === imageIndex}
           key={index}
@@ -44,33 +45,41 @@ const ImageSlider = ({ images }) => {
     })
     return result
   }
+
+  if (!images || !images.length) return null
   const currentImage = !!images && images[imageIndex].url
   return (
-    <SliderBox className="slider">
-      <img src={currentImage} />
-      <button className="control" onClick={showPrevImage}>
-        <IconContainer className="left">
-          <Icon name="CHEVRON" />
-        </IconContainer>
-      </button>
-      <button className="control" onClick={showNextImage}>
-        <IconContainer className="right">
-          <Icon name="CHEVRON" />
-        </IconContainer>
-      </button>
-      <Group>{renderCircles()}</Group>
-    </SliderBox>
+    <SliderContainer data-testid="slider" className="container">
+      <SliderBox className="slider">
+        <img src={currentImage} alt="Slider Image" />
+        <button
+          type="button"
+          data-testid="prev-button"
+          className="control"
+          onClick={showPrevImage}
+        >
+          <IconContainer className="left">
+            <Icon name="CHEVRON" />
+          </IconContainer>
+        </button>
+        <button
+          type="button"
+          data-testid="next-button"
+          className="control"
+          onClick={showNextImage}
+        >
+          <IconContainer className="right">
+            <Icon name="CHEVRON" />
+          </IconContainer>
+        </button>
+        <Group data-testid="group">{renderCircles()}</Group>
+      </SliderBox>
+    </SliderContainer>
   )
 }
 
-const Slider = ({ images }) => (
-  <SliderContainer className="container">
-    <ImageSlider images={images} />
-  </SliderContainer>
-)
-
 Slider.defaultProps = {
-  images: IMAGES,
+  images: [],
 }
 
 export { Slider }
