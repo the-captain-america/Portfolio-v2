@@ -4,14 +4,10 @@ import { Grid, Row, Col } from '@common/Grid'
 import { Main } from '@common/Main'
 import { Footer } from '@common/Footer'
 
-const aboutMeInfo = (
-  <p>
-    I am a frontend developer with an accounting background and a strong passion
+const aboutMeInfo = ` I am a frontend developer with an accounting background and a strong passion
     for technology and coding. My main areas of expertise include HTML, CSS,
     JavaScript, React, and Styled Components. My main goal is to build top-class
-    web applications and websites.
-  </p>
-)
+    web applications and websites.`
 
 const AboutMePage = () => {
   return (

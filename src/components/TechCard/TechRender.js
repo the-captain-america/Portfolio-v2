@@ -9,6 +9,7 @@ const technologiesCard = [
   { label: 'CSS', name: 'CSS_GRAPHIC' },
   { label: 'React', name: 'REACT_GRAPHIC' },
   { label: 'Styled', name: 'STYLED_GRAPHIC' },
+  { label: 'Git', name: 'GIT_GRAPHIC' },
 ]
 
 const TechGroup = styled.ul`

@@ -10,6 +10,7 @@ import { Tabs } from '@common/Tabs'
 import { Modal } from '@common/Modal-v2'
 import { CardContainer, CardGroup, Detail } from './Library.styled'
 import { Slider } from '@common/Slider'
+import { CAR1, CAR2, CAR3, CAR4 } from '@common/Slider'
 
 const Card = ({ children, title }) => {
   return (
@@ -19,6 +20,13 @@ const Card = ({ children, title }) => {
     </CardContainer>
   )
 }
+
+const IMAGES = [
+  { url: CAR1, id: 1 },
+  { url: CAR2, id: 2 },
+  { url: CAR3, id: 3 },
+  { url: CAR4, id: 4 },
+]
 
 const options = [
   { label: 'Tab 1', id: '1' },
@@ -180,7 +188,7 @@ const Library = () => {
         </Card>
       </Col> */}
       <Row>
-        <Slider />
+        <Slider images={IMAGES} />
       </Row>
       {showModal && (
         <Modal

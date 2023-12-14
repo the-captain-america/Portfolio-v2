@@ -74,7 +74,7 @@ const FooterInfo = ({ items = [], title, children }) => {
   const renderItems = () => {
     if (!items || !items.length) return null
     const result = items.map((item) => (
-      <ListItem>
+      <ListItem key={item.label}>
         <Link
           className="link"
           href={item.value}

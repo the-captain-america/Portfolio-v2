@@ -95,15 +95,13 @@ const LandingPage = () => {
                 id="about"
                 subtitle="A bit about me..."
                 title="About Me"
-                info={
-                  <p>
+                info={`
                     I am a frontend developer with an accounting background and
                     a strong passion for technology and coding. My main areas of
                     expertise include HTML, CSS, JavaScript, React, and Styled
                     Components. My main goal is to build top-class web
                     applications and websites.
-                  </p>
-                }
+                  `}
               >
                 <TechRender />
               </Main>
