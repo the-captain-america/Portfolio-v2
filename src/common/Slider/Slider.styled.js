@@ -9,16 +9,7 @@ const SliderContainer = styled.div`
   height: 100%;
   display: flex;
   margin-top: 24px;
-`
-
-const SliderBox = styled.div`
   position: relative;
-  width: 100%;
-  height: 300px;
-  img {
-    width: 100%;
-    height: 300px;
-  }
   button.control {
     width: 30px;
     position: absolute;
@@ -40,6 +31,16 @@ const SliderBox = styled.div`
     &:hover {
       background: rgb(0, 0, 0, 0.2);
     }
+  }
+`
+
+const SliderBox = styled.div`
+  position: relative;
+  width: 100%;
+  height: 300px;
+  img {
+    width: 100%;
+    height: 300px;
   }
 `
 const Group = styled.ul`

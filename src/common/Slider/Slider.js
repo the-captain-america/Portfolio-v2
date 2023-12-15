@@ -46,34 +46,37 @@ const Slider = ({ images }) => {
     return result
   }
 
+  const renderImages = () => {}
+
   if (!images || !images.length) return null
   const currentImage = !!images && images[imageIndex].url
+
   return (
     <SliderContainer data-testid="slider" className="container">
       <SliderBox className="slider">
         <img src={currentImage} alt="Slider Image" />
-        <button
-          type="button"
-          data-testid="prev-button"
-          className="control"
-          onClick={showPrevImage}
-        >
-          <IconContainer className="left">
-            <Icon name="CHEVRON" />
-          </IconContainer>
-        </button>
-        <button
-          type="button"
-          data-testid="next-button"
-          className="control"
-          onClick={showNextImage}
-        >
-          <IconContainer className="right">
-            <Icon name="CHEVRON" />
-          </IconContainer>
-        </button>
-        <Group data-testid="group">{renderCircles()}</Group>
       </SliderBox>
+      <button
+        type="button"
+        data-testid="prev-button"
+        className="control"
+        onClick={showPrevImage}
+      >
+        <IconContainer className="left">
+          <Icon name="CHEVRON" />
+        </IconContainer>
+      </button>
+      <button
+        type="button"
+        data-testid="next-button"
+        className="control"
+        onClick={showNextImage}
+      >
+        <IconContainer className="right">
+          <Icon name="CHEVRON" />
+        </IconContainer>
+      </button>
+      <Group data-testid="group">{renderCircles()}</Group>
     </SliderContainer>
   )
 }
