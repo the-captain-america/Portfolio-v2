@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
+import sound from './assets/grogu.mp3'
 import useSound from 'use-sound'
 
 const grogu = {
@@ -235,7 +236,6 @@ const GroguContainer = styled.div`
     transform: scaleX(-1);
   }
 `
-import sound from './assets/grogu.mp3'
 
 const Grogu = ({ isActive }) => {
   const [play] = useSound(sound)

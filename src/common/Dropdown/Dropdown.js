@@ -154,44 +154,14 @@ const keyCodes = {
 const Dropdown = ({ options, callback, name, ...props }) => {
   const ref = useRef(null)
   const iRuffu = useRef([])
-  if (!options || !options.length) return null
-
-  iRuffu.current = options.map((option, index) =>
-    iRuffu.current[index] ? iRuffu.current[index] : React.createRef(),
-  )
-
   const [isOpen, setIsOpen] = useState(false)
-
   const [index, setActiveIndex] = useState(0)
-  const optionsLength = options.length - 1 // 1 (assuming that we have 2 items in the array)
 
   const escFunction = useCallback((event) => {
     if (event.key === 'Escape') {
       setIsOpen(false)
     }
   }, [])
-
-  const onKeyDown = (e) => {
-    const key = e.keyCode || e.charCode
-    if (key === keyCodes.ENTER || key === 13) {
-      if (isOpen) {
-        setIsOpen(false)
-        return
-      }
-      setIsOpen(true)
-      return
-    }
-    if (isOpen) {
-      if (key === '40' || key === 40) {
-        // what is the ?. in javascript ? it's called optional chaining
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
-
-        if (iRuffu && iRuffu?.current[0]) {
-          iRuffu.current[0].current.focus()
-        }
-      }
-    }
-  }
 
   useEffect(() => {
     document.addEventListener('keydown', escFunction, false)
@@ -216,6 +186,34 @@ const Dropdown = ({ options, callback, name, ...props }) => {
       body.removeEventListener('click', callback)
     }
   }, [])
+
+  iRuffu.current = options.map((option, index) =>
+    iRuffu.current[index] ? iRuffu.current[index] : React.createRef(),
+  )
+
+  const optionsLength = options.length - 1 // 1 (assuming that we have 2 items in the array)
+
+  const onKeyDown = (e) => {
+    const key = e.keyCode || e.charCode
+    if (key === keyCodes.ENTER || key === 13) {
+      if (isOpen) {
+        setIsOpen(false)
+        return
+      }
+      setIsOpen(true)
+      return
+    }
+    if (isOpen) {
+      if (key === '40' || key === 40) {
+        // what is the ?. in javascript ? it's called optional chaining
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+
+        if (iRuffu && iRuffu?.current[0]) {
+          iRuffu.current[0].current.focus()
+        }
+      }
+    }
+  }
 
   const handleSelect = (selectedOption) => {
     const payload = updatedArray(selectedOption, options)
@@ -244,6 +242,7 @@ const Dropdown = ({ options, callback, name, ...props }) => {
 
   const total = totalSelected(options)
 
+  if (!options || !options.length) return null
   return (
     <Wrapper ref={ref} mt={props.mt} tabIndex={0} onKeyDown={onKeyDown}>
       <Header isActive={isOpen} onClick={() => setIsOpen(!isOpen)}>
