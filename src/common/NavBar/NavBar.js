@@ -255,6 +255,7 @@ const ProfileContainer = styled.div`
   width: 48px;
   height: 48px;
   overflow: hidden;
+  cursor: pointer;
   border: 2px solid rgb(42, 43, 102);
   img {
     width: 100%;
@@ -276,8 +277,20 @@ const NavHeader = styled.div`
 `
 
 const Profile = () => {
+  const handleClickProfile = () => {
+    console.log('profile clicked')
+    window.open(
+      'https://www.linkedin.com/in/vinujk/',
+      '_blank',
+      'noopener,noreferrer',
+    )
+  }
+
   return (
-    <ProfileContainer>
+    <ProfileContainer
+      className="profile-container"
+      onClick={handleClickProfile}
+    >
       <img src={profileImage} />
     </ProfileContainer>
   )

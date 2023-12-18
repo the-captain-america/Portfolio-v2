@@ -12,6 +12,7 @@ import { CardContainer, CardGroup, Detail } from './Library.styled'
 import { Slider } from '@common/Slider'
 import { CAR1, CAR2, CAR3, CAR4 } from '@common/Slider'
 import { Slider2 } from '@common/Slider/Slider-v2'
+import { Radio } from '@common/Radio'
 
 const Card = ({ children, title }) => {
   return (
@@ -27,6 +28,12 @@ const IMAGES = [
   { url: CAR2, id: 2 },
   { url: CAR3, id: 3 },
   { url: CAR4, id: 4 },
+]
+const radioOptions = [
+  { label: 'Option 1', value: 'A', id: 'A' },
+  { label: 'Option 2', value: 'B', id: 'B' },
+  { label: 'Option 3', value: 'C', id: 'C' },
+  { label: 'Option 4', value: 'D', id: 'D' },
 ]
 
 const options = [
@@ -45,6 +52,7 @@ const Library = () => {
       { label: 'Extra Item', id: 4, active: false },
       { label: 'Extra sdfsdf', id: 5, active: false },
     ],
+    radio: '',
   })
 
   const [activeTab, setActiveTab] = useState('1')
@@ -138,6 +146,25 @@ const Library = () => {
           <Detail>
             <p>Information about the Dropdown component</p>
           </Detail>
+        </Col>
+      </Row>
+      <Row mt={32}>
+        <Col xs={12} sm={6}>
+          <Detail>
+            <p>Information about the Radio Button component</p>
+          </Detail>
+        </Col>
+        <Col xs={12} sm={6}>
+          <Card>
+            <Radio
+              name="radio"
+              options={radioOptions}
+              value={state.radio}
+              callback={({ name, data }) => {
+                setState({ ...state, [name]: data })
+              }}
+            />
+          </Card>
         </Col>
       </Row>
       {/* <Col xs={12} sm={6}>
