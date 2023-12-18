@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, ImageContainer, Group, List } from './Radio.styled'
+import { Group, List, Heading } from './Radio.styled'
 
 const Radio = ({ options, value, callback, name }) => {
   const renderOptions = () => {
@@ -19,7 +19,9 @@ const Radio = ({ options, value, callback, name }) => {
 
   return (
     <>
-      <h3>Q3: Which radio button do you prefer?</h3>
+      <Heading>
+        <span>Which radio button do you prefer?</span>
+      </Heading>
       {renderOptions()}
     </>
   )

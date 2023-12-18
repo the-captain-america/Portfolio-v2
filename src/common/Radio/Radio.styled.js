@@ -33,28 +33,32 @@ const List = styled.li`
   position: relative;
   cursor: pointer;
   user-select: none;
+
   &:before {
     content: '';
     position: relative;
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
-    background: rgb(100, 211, 108);
+    background: #6b6cfe;
   }
   &:after {
     content: '';
     position: absolute;
     background: white;
-    height: 10px;
-    width: 10px;
+    height: 7.5px;
+    width: 7.5px;
     border-radius: 50%;
-    top: 21px;
-    left: 21px;
+    top: 20px;
+    left: 24px;
+    right: 19px;
+    transform: translateX(-50%);
     display: none;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.22);
+    transition: all 0.3s ease-in-out;
   }
   span {
-    font-weight: 700;
+    font-weight: 500;
     margin-left: 16px;
   }
   ${(props) =>
@@ -66,4 +70,10 @@ const List = styled.li`
     `}
 `
 
-export { Container, ImageContainer, Group, List }
+const Heading = styled.div`
+  span {
+    font-weight: 500;
+  }
+`
+
+export { Container, ImageContainer, Group, List, Heading }
