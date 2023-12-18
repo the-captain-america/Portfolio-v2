@@ -11,6 +11,7 @@ import { Modal } from '@common/Modal-v2'
 import { CardContainer, CardGroup, Detail } from './Library.styled'
 import { Slider } from '@common/Slider'
 import { CAR1, CAR2, CAR3, CAR4 } from '@common/Slider'
+import { Slider2 } from '@common/Slider/Slider-v2'
 
 const Card = ({ children, title }) => {
   return (
@@ -189,6 +190,9 @@ const Library = () => {
       </Col> */}
       <Row>
         <Slider images={IMAGES} />
+      </Row>
+      <Row>
+        <Slider2 images={IMAGES} />
       </Row>
       {showModal && (
         <Modal
