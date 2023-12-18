@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { CAR1, CAR2, CAR3, CAR4 } from './images'
 import { Icon } from '@common/Icon'
 
@@ -59,8 +59,57 @@ const IconContainer = styled.div`
   }
 `
 
+const CircleGroup = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  display: flex;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+`
+const Circle = styled.li`
+  list-style: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 8px;
+  border: 2px solid white;
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+  ${(props) =>
+    props.isActive &&
+    css`
+      background: white;
+    `}
+`
+
 const Slider2 = ({ images }) => {
   const [imageIndex, setImageIndex] = useState(0)
+
+  const handleClick = (index) => {
+    setImageIndex(index)
+  }
+
+  const renderCircles = () => {
+    if (!images || !images.length) return null
+    const result = images.map((index) => {
+      return (
+        <Circle
+          onClick={() => handleClick(index)}
+          key={index}
+          isActive={index === imageIndex}
+        ></Circle>
+      )
+    })
+    return result
+  }
 
   const renderImages = () => {
     const result = images.map((item) => {
@@ -105,6 +154,7 @@ const Slider2 = ({ images }) => {
           <Icon className="right" name="CHEVRON" />
         </IconContainer>
       </button>
+      <CircleGroup>{renderCircles()}</CircleGroup>
     </SliderContainer>
   )
 }
