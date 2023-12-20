@@ -71,6 +71,7 @@ const List = styled.li`
 `
 
 const Heading = styled.div`
+  margin-bottom: 8px;
   span {
     font-weight: 500;
   }

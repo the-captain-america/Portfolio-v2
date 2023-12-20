@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Group, List, Heading } from './Radio.styled'
 
-const Radio = ({ options, value, callback, name }) => {
+const Radio = ({ options, value, callback, name, label }) => {
   const renderOptions = () => {
     if (!options || !options.length) return null
     const result = options.map((option) => {
@@ -19,12 +19,21 @@ const Radio = ({ options, value, callback, name }) => {
 
   return (
     <>
-      <Heading>
-        <span>Which radio button do you prefer?</span>
-      </Heading>
+      {label && (
+        <Heading>
+          <span>{label}</span>
+        </Heading>
+      )}
       {renderOptions()}
     </>
   )
+}
+
+Radio.defaultProps = {
+  label: 'Which radio button do you prefer?',
+  callback: () => {},
+  name: '',
+  options: [],
 }
 
 export { Radio }
