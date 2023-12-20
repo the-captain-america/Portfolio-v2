@@ -43,7 +43,6 @@ const Slider = ({ images }) => {
         ></Circle>
       )
     })
-    return result
   }
 
   const renderImages = () => {}

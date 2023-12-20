@@ -70,6 +70,7 @@ const CircleGroup = styled.ul`
   transform: translateX(-50%);
   z-index: 2;
 `
+
 const Circle = styled.li`
   list-style: none;
   cursor: pointer;
@@ -99,15 +100,13 @@ const Slider2 = ({ images }) => {
 
   const renderCircles = () => {
     if (!images || !images.length) return null
-    const result = images.map((index) => {
-      return (
-        <Circle
-          onClick={() => handleClick(index)}
-          key={index}
-          isActive={index === imageIndex}
-        ></Circle>
-      )
-    })
+    const result = images.map((item, index) => (
+      <Circle
+        onClick={() => handleClick(index)}
+        key={index}
+        isActive={index === imageIndex}
+      />
+    ))
     return result
   }
 
@@ -145,13 +144,13 @@ const Slider2 = ({ images }) => {
     <SliderContainer>
       <SliderBox>{renderImages()}</SliderBox>
       <button onClick={handlePrev} className="prev-button">
-        <IconContainer>
-          <Icon className="left" name="CHEVRON" />
+        <IconContainer className="left">
+          <Icon name="CHEVRON" />
         </IconContainer>
       </button>
       <button onClick={handleNext} className="next-button">
-        <IconContainer>
-          <Icon className="right" name="CHEVRON" />
+        <IconContainer className="right">
+          <Icon name="CHEVRON" />
         </IconContainer>
       </button>
       <CircleGroup>{renderCircles()}</CircleGroup>

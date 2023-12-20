@@ -37,8 +37,8 @@ const List = styled.li`
   &:before {
     content: '';
     position: relative;
-    height: 15px;
-    width: 15px;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
     background: #6b6cfe;
   }
@@ -46,8 +46,8 @@ const List = styled.li`
     content: '';
     position: absolute;
     background: white;
-    height: 7.5px;
-    width: 7.5px;
+    height: 8px;
+    width: 8px;
     border-radius: 50%;
     top: 20px;
     left: 24px;
